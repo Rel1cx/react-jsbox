@@ -1,0 +1,22 @@
+{
+  "plugins": ["react"],
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "globals": {
+    "JSBox": "writable",
+    "$": "readonly",
+    "$ui": "readonly",
+    "$objc": "readonly",
+    "$thread": "readonly"
+  },
+  "rules": {
+    "semi": [2, "never"],
+    "arrow-parens": 0,
+    "global-require": 0,
+    "no-underscore-dangle": 0,
+    "no-param-reassign": 0,
+    "import/prefer-default-export": 0
+  }
+}

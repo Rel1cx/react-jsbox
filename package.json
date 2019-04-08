@@ -1,0 +1,35 @@
+{
+  "name": "react-jsbox",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/react-jsbox.js",
+  "scripts": {
+    "dev": "rollup -c -w",
+    "build": "rollup -c"
+  },
+  "author": "Eva1ent",
+  "peerDependencies": {
+    "react": "^16.8.6"
+  },
+  "dependencies": {
+    "react-reconciler": "^0.20.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-react": "^7.12.4",
+    "lyo": "^1.2.0",
+    "react": "^16.8.6",
+    "rollup": "^1.9.0",
+    "rollup-plugin-babel": "^4.3.2",
+    "rollup-plugin-commonjs": "^9.3.4",
+    "rollup-plugin-modify": "^3.0.0",
+    "rollup-plugin-node-resolve": "^4.2.1",
+    "rollup-plugin-replace": "^2.1.1"
+  },
+  "license": "MIT"
+}
