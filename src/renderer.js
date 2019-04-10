@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Reconciler from 'react-reconciler'
-import View from './components/View'
+import View from './Components/View'
 import {emptyObject, now, scheduleDeferredCallback} from './helper'
 
 function appendInitialChild(parentInstance, child) {

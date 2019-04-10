@@ -1,6 +1,16 @@
-export default class base {
-  constructor(element) {
-    this.element = element
+// const {shouldUpdate} = require('../helper')
+
+export default class View {
+  constructor(type, props) {
+    this.element = this.newElement(type, props)
+  }
+
+  newElement(type, props) {
+    return $ui.create({
+      type,
+      props,
+      events: props.events
+    })
   }
 
   getElement() {
