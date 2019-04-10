@@ -103,6 +103,22 @@ function insertInContainerBefore(parentInstance, child, beforeChild) {
     )
 }
 
+function hideInstance(instance) {
+  instance.getElement().hidden = true
+}
+
+function unhideInstance(instance) {
+  instance.getElement().hidden = false
+}
+
+function hideTextInstance(instance) {
+  instance.getElement().hidden = true
+}
+
+function unhideTextInstance(instance) {
+  instance.getElement().hidden = false
+}
+
 function commitUpdate(instance, updatePayload, type, oldProps, newProps) {
   instance.update(oldProps, newProps)
 }
@@ -147,6 +163,14 @@ const JSBoxRenderer = Reconciler({
   appendChild,
 
   appendChildToContainer,
+
+  hideInstance,
+
+  hideTextInstance,
+
+  unhideInstance,
+
+  unhideTextInstance,
 
   commitMount,
 
