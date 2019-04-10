@@ -1,6 +1,4 @@
-import { emptyFunction } from '../helper'
-
-export default class Base {
+export default class base {
   constructor(element) {
     this.element = element
   }
@@ -9,16 +7,24 @@ export default class Base {
     return this.element
   }
 
-  update(lastProps, props) {
-    if (!lastProps) {
-      lastProps = {}
-    }
+  exists(prop) {
+    return typeof prop !== 'undefined'
+  }
 
-    if (typeof props.visible === 'boolean' && props.hidden !== lastProps.hidden) {
-      this.getElement().hidden = props.hidden
+  appendChild() {}
+
+  removeChild() {}
+
+  insertBefore() {}
+
+  update(oldProps, newProps) {
+    if (!oldProps) {
+      oldProps = {}
     }
+    Object.keys(newProps).forEach(prop => {
+      if (oldProps[prop] !== newProps[prop]) {
+        this.getElement()[prop] = newProps[prop]
+      }
+    })
   }
 }
-Base.prototype.addChildView = emptyFunction
-Base.prototype.removeChildView = emptyFunction
-Base.prototype.insertBefore = emptyFunction

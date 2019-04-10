@@ -8,12 +8,9 @@ export default class view extends base {
       $ui.create({
         type: 'view',
         props,
-        events: {
-          tapped: props.tapped,
-        },
-      }),
+        events: props.events
+      })
     )
-
     this.update(null, props)
   }
 

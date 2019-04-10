@@ -1,8 +1,7 @@
 {
-  "plugins": ["react"],
+  "parser": "babel-eslint",
   "env": {
-    "node": true,
-    "browser": true
+    "node": true
   },
   "globals": {
     "JSBox": "writable",

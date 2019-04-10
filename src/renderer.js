@@ -28,29 +28,29 @@ function getPublicInstance({element}) {
   return element
 }
 
-function prepareForCommit() {}
+function prepareForCommit(args) {}
 
-function prepareUpdate() {
+function prepareUpdate(args) {
   return true
 }
 
-function resetAfterCommit() {}
+function resetAfterCommit(args) {}
 
-function getRootHostContext() {
+function getRootHostContext(args) {
   return emptyObject
 }
 
-function getChildHostContext() {
+function getChildHostContext(args) {
   return emptyObject
 }
 
-function shouldSetTextContent() {
+function shouldSetTextContent(args) {
   return false
 }
 
 function resetTextContent() {}
 
-function createTextInstance() {
+function createTextInstance(args) {
   return null
 }
 
@@ -59,13 +59,7 @@ function shouldDeprioritizeSubtree(type, props) {
   return false
 }
 
-function appendChild(parentInstance, child) {
-  const parent =
-    typeof parentInstance.getElement === 'function'
-      ? parentInstance.getElement()
-      : parentInstance
-  parent.runtimeValue().$addSubview(child.getElement())
-}
+function appendChild(parentInstance, child) {}
 
 function appendChildToContainer(parentInstance, child) {
   const parent =
@@ -90,7 +84,7 @@ function insertBefore(parentInstance, child, beforeChild) {
       : parentInstance
   parent
     .runtimeValue()
-    .$insertSubview(
+    .$insertSubview_belowSubview(
       child.getElement().runtimeValue(),
       beforeChild.getElement().runtimeValue()
     )
@@ -103,7 +97,7 @@ function insertInContainerBefore(parentInstance, child, beforeChild) {
       : parentInstance
   parent
     .runtimeValue()
-    .$insertSubview(
+    .$insertSubview_belowSubview(
       child.getElement().runtimeValue(),
       beforeChild.getElement().runtimeValue()
     )
@@ -113,13 +107,9 @@ function commitUpdate(instance, updatePayload, type, oldProps, newProps) {
   instance.update(oldProps, newProps)
 }
 
-function commitMount(instance, updatePayload, type, oldProps, newProps) {
-  // console.log('commitMount', instance, updatePayload, type, oldProps, newProp)
-}
+function commitMount(instance, updatePayload, type, oldProps, newProps) {}
 
-function commitTextUpdate(textInstance, oldText, newText) {
-  // console.log('commitTextUpdate', textInstance, oldText, newText)
-}
+function commitTextUpdate(textInstance, oldText, newText) {}
 
 const JSBoxRenderer = Reconciler({
   appendInitialChild,

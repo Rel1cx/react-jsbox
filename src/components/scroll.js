@@ -6,13 +6,9 @@ export default class scroll extends base {
     super(
       $ui.create({
         type: 'scroll',
-        props,
-        events: {
-          tapped: props.tapped,
-        },
-      }),
+        props
+      })
     )
-
     this.update(null, props)
   }
 
