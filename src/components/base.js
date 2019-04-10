@@ -11,12 +11,6 @@ export default class base {
     return typeof prop !== 'undefined'
   }
 
-  appendChild() {}
-
-  removeChild() {}
-
-  insertBefore() {}
-
   update(oldProps, newProps) {
     if (!oldProps) {
       oldProps = {}
