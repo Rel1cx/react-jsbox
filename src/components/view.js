@@ -1,12 +1,12 @@
-import base from './base'
+import Base from './Base'
 
-// const { shouldUpdate } = require('../utils')
+// const {shouldUpdate} = require('../helper')
 
-export default class view extends base {
-  constructor(props) {
+export default class View extends Base {
+  constructor(type, props) {
     super(
       $ui.create({
-        type: 'view',
+        type,
         props,
         events: props.events
       })

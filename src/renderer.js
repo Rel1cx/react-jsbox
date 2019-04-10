@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Reconciler from 'react-reconciler'
-import {Components, hasComponent} from './components'
+import View from './components/View'
 import {emptyObject, now, scheduleDeferredCallback} from './helper'
 
 function appendInitialChild(parentInstance, child) {
@@ -12,11 +12,7 @@ function appendInitialChild(parentInstance, child) {
 }
 
 function createInstance(type, props, internalInstanceHandle) {
-  if (!hasComponent(type)) {
-    throw new Error(`invalid built-in component type: ${type}`)
-  }
-  const Comp = Components[type]
-  return new Comp(props)
+  return new View(type, props)
 }
 
 // eslint-disable-next-line
