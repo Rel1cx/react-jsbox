@@ -6,16 +6,6 @@ export const emptyObject = {}
 
 export const {now} = Date
 
-export function scheduleDeferredCallback(frameCallback) {
-  return setTimeout(() => {
-    frameCallback({
-      timeRemaining() {
-        return Infinity
-      }
-    })
-  }, 0)
-}
-
 export function shouldUpdate(props, lastProps, propName) {
   if (!props || props[propName] === undefined) {
     return false

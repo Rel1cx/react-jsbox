@@ -1,8 +1,21 @@
-/* eslint-disable no-unused-vars */
 import Reconciler from 'react-reconciler'
 import View from './Components/View'
-import {emptyObject, now, scheduleDeferredCallback} from './helper'
+import {emptyObject, now} from './helper'
 
+function getPublicInstance({element}) {
+  return element
+}
+function getRootHostContext() {
+  return emptyObject
+}
+function getChildHostContext() {
+  return emptyObject
+}
+function prepareForCommit() {}
+function resetAfterCommit() {}
+function createInstance(type, props, internalInstanceHandle) {
+  return new View(type, props)
+}
 function appendInitialChild(parentInstance, child) {
   const parent =
     typeof parentInstance.getElement === 'function'
@@ -10,53 +23,51 @@ function appendInitialChild(parentInstance, child) {
       : parentInstance
   parent.runtimeValue().$addSubview(child.getElement())
 }
-
-function createInstance(type, props, internalInstanceHandle) {
-  return new View(type, props)
-}
-
-// eslint-disable-next-line
 function finalizeInitialChildren(docElement, type, props) {
   return false
 }
-
-function getPublicInstance({element}) {
-  return element
-}
-
-function prepareForCommit(args) {}
-
-function prepareUpdate(args) {
+function prepareUpdate() {
   return true
 }
-
-function resetAfterCommit(args) {}
-
-function getRootHostContext(args) {
-  return emptyObject
-}
-
-function getChildHostContext(args) {
-  return emptyObject
-}
-
-function shouldSetTextContent(args) {
+function shouldSetTextContent() {
   return false
 }
-
-function resetTextContent() {}
-
-function createTextInstance(args) {
-  return null
-}
-
-// eslint-disable-next-line
 function shouldDeprioritizeSubtree(type, props) {
   return false
 }
-
-function appendChild(parentInstance, child) {}
-
+function createTextInstance() {
+  return null
+}
+function scheduleDeferredCallback(frameCallback) {
+  return setTimeout(() => {
+    frameCallback({
+      timeRemaining() {
+        return Infinity
+      }
+    })
+  }, 0)
+}
+function cancelDeferredCallback(id) {
+  clearTimeout(id)
+}
+// function shouldYield() {}
+// function setTimeout() {}
+// function clearTimeout() {}
+// function noTimeout() {}
+function schedulePassiveEffects() {}
+function cancelPassiveEffects() {}
+function isPrimaryRenderer() {
+  return true
+}
+// function supportsPersistence() {}
+// function supportsHydration() {}
+function appendChild(parentInstance, child) {
+  const parent =
+    typeof parentInstance.getElement === 'function'
+      ? parentInstance.getElement()
+      : parentInstance
+  parent.runtimeValue().$addSubview(child.getElement())
+}
 function appendChildToContainer(parentInstance, child) {
   const parent =
     typeof parentInstance.getElement === 'function'
@@ -64,15 +75,11 @@ function appendChildToContainer(parentInstance, child) {
       : parentInstance
   parent.runtimeValue().$addSubview(child.getElement())
 }
-
-function removeChild(parentInstance, child) {
-  child.getElement().remove()
+function commitTextUpdate(textInstance, oldText, newText) {}
+function commitMount(instance, updatePayload, type, oldProps, newProps) {}
+function commitUpdate(instance, updatePayload, type, oldProps, newProps) {
+  instance.update(oldProps, newProps)
 }
-
-function removeChildFromContainer(parentInstance, child) {
-  child.getElement().remove()
-}
-
 function insertBefore(parentInstance, child, beforeChild) {
   const parent =
     typeof parentInstance.getElement === 'function'
@@ -85,7 +92,6 @@ function insertBefore(parentInstance, child, beforeChild) {
       beforeChild.getElement().runtimeValue()
     )
 }
-
 function insertInContainerBefore(parentInstance, child, beforeChild) {
   const parent =
     typeof parentInstance.getElement === 'function'
@@ -98,7 +104,14 @@ function insertInContainerBefore(parentInstance, child, beforeChild) {
       beforeChild.getElement().runtimeValue()
     )
 }
+function removeChild(parentInstance, child) {
+  child.getElement().remove()
+}
 
+function removeChildFromContainer(parentInstance, child) {
+  child.getElement().remove()
+}
+function resetTextContent() {}
 function hideInstance(instance) {
   instance.getElement().hidden = true
 }
@@ -114,73 +127,57 @@ function hideTextInstance(instance) {
 function unhideTextInstance(instance) {
   instance.getElement().hidden = false
 }
-
-function commitUpdate(instance, updatePayload, type, oldProps, newProps) {
-  instance.update(oldProps, newProps)
-}
-
-function commitMount(instance, updatePayload, type, oldProps, newProps) {}
-
-function commitTextUpdate(textInstance, oldText, newText) {}
+// function cloneInstance() {}
+// function createContainerChildSet() {}
+// function appendChildToContainerChildSet() {}
+// function finalizeContainerChildren() {}
+// function replaceContainerChildren() {}
+// function cloneHiddenInstance() {}
+// function cloneUnhiddenInstance() {}
+// function createHiddenTextInstance() {}
+// function canHydrateInstance() {}
+// function canHydrateTextInstance() {}
+// function getNextHydratableSibling() {}
+// function getFirstHydratableChild() {}
+// function hydrateInstance() {}
+// function hydrateTextInstance() {}
 
 const JSBoxRenderer = Reconciler({
-  appendInitialChild,
-
-  createInstance,
-
-  createTextInstance,
-
-  finalizeInitialChildren,
-
   getPublicInstance,
-
-  prepareForCommit,
-
-  prepareUpdate,
-
-  resetAfterCommit,
-
-  resetTextContent,
-
   getRootHostContext,
-
   getChildHostContext,
-
+  prepareForCommit,
+  resetAfterCommit,
+  createInstance,
+  appendInitialChild,
+  finalizeInitialChildren,
+  prepareUpdate,
   shouldSetTextContent,
-
-  scheduleDeferredCallback,
-
   shouldDeprioritizeSubtree,
-
+  createTextInstance,
+  scheduleDeferredCallback,
+  cancelDeferredCallback,
   now,
-
   supportsMutation: true,
-
+  schedulePassiveEffects,
+  cancelPassiveEffects,
+  isPrimaryRenderer,
+  // supportsPersistence,
+  // supportsHydration,
   appendChild,
-
   appendChildToContainer,
-
-  hideInstance,
-
-  hideTextInstance,
-
-  unhideInstance,
-
-  unhideTextInstance,
-
+  commitTextUpdate,
   commitMount,
-
   commitUpdate,
-
   insertBefore,
-
   insertInContainerBefore,
-
   removeChild,
-
   removeChildFromContainer,
-
-  commitTextUpdate
+  resetTextContent,
+  hideInstance,
+  unhideInstance,
+  hideTextInstance,
+  unhideTextInstance
 })
 
 export default function render(element, container, callback) {

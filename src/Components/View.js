@@ -2,11 +2,7 @@
 
 export default class View {
   constructor(type, props) {
-    this.element = this.newElement(type, props)
-  }
-
-  newElement(type, props) {
-    return $ui.create({
+    this.element = $ui.create({
       type,
       props,
       events: props.events
