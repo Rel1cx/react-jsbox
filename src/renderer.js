@@ -2,182 +2,197 @@ import Reconciler from 'react-reconciler'
 import View from './Components/View'
 import {emptyObject, now} from './helper'
 
-function getPublicInstance({element}) {
-  return element
-}
-function getRootHostContext() {
-  return emptyObject
-}
-function getChildHostContext() {
-  return emptyObject
-}
-function prepareForCommit() {}
-function resetAfterCommit() {}
-function createInstance(type, props, internalInstanceHandle) {
-  return new View(type, props)
-}
-function appendInitialChild(parentInstance, child) {
-  const parent =
-    typeof parentInstance.getElement === 'function'
-      ? parentInstance.getElement()
-      : parentInstance
-  parent.runtimeValue().$addSubview(child.getElement())
-}
-function finalizeInitialChildren(docElement, type, props) {
-  return false
-}
-function prepareUpdate() {
-  return true
-}
-function shouldSetTextContent() {
-  return false
-}
-function shouldDeprioritizeSubtree(type, props) {
-  return false
-}
-function createTextInstance() {
-  return null
-}
-function scheduleDeferredCallback(frameCallback) {
-  return setTimeout(() => {
-    frameCallback({
-      timeRemaining() {
-        return Infinity
-      }
-    })
-  }, 0)
-}
-function cancelDeferredCallback(id) {
-  clearTimeout(id)
-}
-// function shouldYield() {}
-// function setTimeout() {}
-// function clearTimeout() {}
-// function noTimeout() {}
-function schedulePassiveEffects() {}
-function cancelPassiveEffects() {}
-function isPrimaryRenderer() {
-  return true
-}
-// function supportsPersistence() {}
-// function supportsHydration() {}
-function appendChild(parentInstance, child) {
-  const parent =
-    typeof parentInstance.getElement === 'function'
-      ? parentInstance.getElement()
-      : parentInstance
-  parent.runtimeValue().$addSubview(child.getElement())
-}
-function appendChildToContainer(parentInstance, child) {
-  const parent =
-    typeof parentInstance.getElement === 'function'
-      ? parentInstance.getElement()
-      : parentInstance
-  parent.runtimeValue().$addSubview(child.getElement())
-}
-function commitTextUpdate(textInstance, oldText, newText) {}
-function commitMount(instance, updatePayload, type, oldProps, newProps) {}
-function commitUpdate(instance, updatePayload, type, oldProps, newProps) {
-  instance.update(oldProps, newProps)
-}
-function insertBefore(parentInstance, child, beforeChild) {
-  const parent =
-    typeof parentInstance.getElement === 'function'
-      ? parentInstance.getElement()
-      : parentInstance
-  parent
-    .runtimeValue()
-    .$insertSubview_belowSubview(
-      child.getElement().runtimeValue(),
-      beforeChild.getElement().runtimeValue()
-    )
-}
-function insertInContainerBefore(parentInstance, child, beforeChild) {
-  const parent =
-    typeof parentInstance.getElement === 'function'
-      ? parentInstance.getElement()
-      : parentInstance
-  parent
-    .runtimeValue()
-    .$insertSubview_belowSubview(
-      child.getElement().runtimeValue(),
-      beforeChild.getElement().runtimeValue()
-    )
-}
-function removeChild(parentInstance, child) {
-  child.getElement().remove()
-}
-
-function removeChildFromContainer(parentInstance, child) {
-  child.getElement().remove()
-}
-function resetTextContent() {}
-function hideInstance(instance) {
-  instance.getElement().hidden = true
-}
-
-function unhideInstance(instance) {
-  instance.getElement().hidden = false
-}
-
-function hideTextInstance(instance) {
-  instance.getElement().hidden = true
-}
-
-function unhideTextInstance(instance) {
-  instance.getElement().hidden = false
-}
-// function cloneInstance() {}
-// function createContainerChildSet() {}
-// function appendChildToContainerChildSet() {}
-// function finalizeContainerChildren() {}
-// function replaceContainerChildren() {}
-// function cloneHiddenInstance() {}
-// function cloneUnhiddenInstance() {}
-// function createHiddenTextInstance() {}
-// function canHydrateInstance() {}
-// function canHydrateTextInstance() {}
-// function getNextHydratableSibling() {}
-// function getFirstHydratableChild() {}
-// function hydrateInstance() {}
-// function hydrateTextInstance() {}
-
 const JSBoxRenderer = Reconciler({
-  getPublicInstance,
-  getRootHostContext,
-  getChildHostContext,
-  prepareForCommit,
-  resetAfterCommit,
-  createInstance,
-  appendInitialChild,
-  finalizeInitialChildren,
-  prepareUpdate,
-  shouldSetTextContent,
-  shouldDeprioritizeSubtree,
-  createTextInstance,
-  scheduleDeferredCallback,
-  cancelDeferredCallback,
+  getPublicInstance({element}) {
+    return element
+  },
+
+  getRootHostContext() {
+    return emptyObject
+  },
+
+  getChildHostContext() {
+    return emptyObject
+  },
+
+  prepareForCommit() {},
+
+  resetAfterCommit() {},
+
+  createInstance(type, props, internalInstanceHandle) {
+    return new View(type, props)
+  },
+
+  appendInitialChild(parentInstance, child) {
+    const parent =
+      typeof parentInstance.getElement === 'function'
+        ? parentInstance.getElement()
+        : parentInstance
+    parent.runtimeValue().$addSubview(child.getElement())
+  },
+
+  finalizeInitialChildren(docElement, type, props) {
+    return false
+  },
+
+  prepareUpdate() {
+    return true
+  },
+
+  shouldSetTextContent() {
+    return false
+  },
+
+  shouldDeprioritizeSubtree(type, props) {
+    return false
+  },
+
+  createTextInstance() {
+    return null
+  },
+
+  scheduleDeferredCallback(frameCallback) {
+    return setTimeout(() => {
+      frameCallback({
+        timeRemaining() {
+          return Infinity
+        }
+      })
+    }, 0)
+  },
+
+  cancelDeferredCallback(id) {
+    clearTimeout(id)
+  },
+
+  // shouldYield() {},
+
+  // setTimeout() {},
+
+  // clearTimeout() {},
+
+  // noTimeout
+
+  // schedulePassiveEffects() {},
+
+  // cancelPassiveEffects() {},
+
+  isPrimaryRenderer() {
+    return true
+  },
+
   now,
+
+  // isPrimaryRenderer: true,
+
   supportsMutation: true,
-  schedulePassiveEffects,
-  cancelPassiveEffects,
-  isPrimaryRenderer,
-  // supportsPersistence,
-  // supportsHydration,
-  appendChild,
-  appendChildToContainer,
-  commitTextUpdate,
-  commitMount,
-  commitUpdate,
-  insertBefore,
-  insertInContainerBefore,
-  removeChild,
-  removeChildFromContainer,
-  resetTextContent,
-  hideInstance,
-  unhideInstance,
-  hideTextInstance,
-  unhideTextInstance
+
+  supportsPersistence: false,
+
+  supportsHydration: false,
+
+  appendChild(parentInstance, child) {
+    const parent =
+      typeof parentInstance.getElement === 'function'
+        ? parentInstance.getElement()
+        : parentInstance
+    parent.runtimeValue().$addSubview(child.getElement())
+  },
+
+  appendChildToContainer(parentInstance, child) {
+    const parent =
+      typeof parentInstance.getElement === 'function'
+        ? parentInstance.getElement()
+        : parentInstance
+    parent.runtimeValue().$addSubview(child.getElement())
+  },
+
+  commitTextUpdate(textInstance, oldText, newText) {},
+
+  commitMount(instance, updatePayload, type, oldProps, newProps) {},
+
+  commitUpdate(instance, updatePayload, type, oldProps, newProps) {
+    instance.update(oldProps, newProps)
+  },
+
+  insertBefore(parentInstance, child, beforeChild) {
+    const parent =
+      typeof parentInstance.getElement === 'function'
+        ? parentInstance.getElement()
+        : parentInstance
+    parent
+      .runtimeValue()
+      .$insertSubview_belowSubview(
+        child.getElement().runtimeValue(),
+        beforeChild.getElement().runtimeValue()
+      )
+  },
+
+  insertInContainerBefore(parentInstance, child, beforeChild) {
+    const parent =
+      typeof parentInstance.getElement === 'function'
+        ? parentInstance.getElement()
+        : parentInstance
+    parent
+      .runtimeValue()
+      .$insertSubview_belowSubview(
+        child.getElement().runtimeValue(),
+        beforeChild.getElement().runtimeValue()
+      )
+  },
+
+  removeChild(parentInstance, child) {
+    child.getElement().remove()
+  },
+
+  removeChildFromContainer(parentInstance, child) {
+    child.getElement().remove()
+  },
+
+  resetTextContent() {},
+
+  hideInstance(instance) {
+    instance.getElement().hidden = true
+  },
+
+  unhideInstance(instance) {
+    instance.getElement().hidden = false
+  },
+
+  hideTextInstance(instance) {
+    instance.getElement().hidden = true
+  },
+
+  unhideTextInstance(instance) {
+    instance.getElement().hidden = false
+  }
+  // cloneInstance() {},
+
+  // createContainerChildSet() {},
+
+  // appendChildToContainerChildSet() {},
+
+  // finalizeContainerChildren() {},
+
+  // replaceContainerChildren() {},
+
+  // cloneHiddenInstance() {},
+
+  // cloneUnhiddenInstance() {},
+
+  // createHiddenTextInstance() {},
+
+  // canHydrateInstance() {},
+
+  // canHydrateTextInstance() {},
+
+  // getNextHydratableSibling() {},
+
+  // getFirstHydratableChild() {},
+
+  // hydrateInstance() {},
+
+  // hydrateTextInstance() {}
 })
 
 export default function render(element, container, callback) {
