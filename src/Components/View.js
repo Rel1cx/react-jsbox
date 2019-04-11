@@ -21,9 +21,10 @@ export default class View {
     if (!oldProps) {
       oldProps = {}
     }
+    const element = this.getElement()
     Object.keys(newProps).forEach(prop => {
       if (oldProps[prop] !== newProps[prop]) {
-        this.getElement()[prop] = newProps[prop]
+        element[prop] = newProps[prop]
       }
     })
   }

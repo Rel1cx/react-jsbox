@@ -123,8 +123,8 @@ const JSBoxRenderer = Reconciler({
     parent
       .runtimeValue()
       .$insertSubview_belowSubview(
-        child.getElement().runtimeValue(),
-        beforeChild.getElement().runtimeValue()
+        child.getElement(),
+        beforeChild.getElement()
       )
   },
 
@@ -136,8 +136,8 @@ const JSBoxRenderer = Reconciler({
     parent
       .runtimeValue()
       .$insertSubview_belowSubview(
-        child.getElement().runtimeValue(),
-        beforeChild.getElement().runtimeValue()
+        child.getElement(),
+        beforeChild.getElement()
       )
   },
 

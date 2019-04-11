@@ -11,10 +11,10 @@ export default [
     output: [{file: pkg.main, format: 'cjs'}],
     plugins: [
       resolve(),
-      commonjs(),
       replace({
-        'process.env.NODE_ENV': "'production'"
+        'process.env.NODE_ENV': JSON.stringify('production')
       }),
+      commonjs(),
       babel({
         extensions: ['.js'],
         runtimeHelpers: true,
