@@ -6,12 +6,18 @@ export const emptyObject = {}
 
 export const {now} = Date
 
-export function shouldUpdate(props, lastProps, propName) {
-  if (!props || props[propName] === undefined) {
-    return false
+export function shallowDiff(oldObj, newObj) {
+  const uniqueProps = new Set([...Object.keys(oldObj), ...Object.keys(newObj)])
+  const changedProps = Array.from(uniqueProps).filter(
+    propName => oldObj[propName] !== newObj[propName]
+  )
+  return changedProps
+}
+
+export function diffProps(oldProps, newProps) {
+  if (!oldProps) {
+    oldProps = {}
   }
-  if (!lastProps) {
-    return true
-  }
-  return props[propName] !== lastProps[propName]
+  const changedProps = shallowDiff(oldProps, newProps)
+  return changedProps.length ? newProps : null
 }

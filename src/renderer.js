@@ -1,6 +1,6 @@
 import Reconciler from 'react-reconciler'
 import View from './Components/View'
-import {emptyObject, now} from './helper'
+import {diffProps, emptyObject, now} from './helper'
 
 const JSBoxRenderer = Reconciler({
   getPublicInstance({element}) {
@@ -31,12 +31,12 @@ const JSBoxRenderer = Reconciler({
     parent.runtimeValue().$addSubview(child.getElement())
   },
 
-  finalizeInitialChildren(docElement, type, props) {
+  finalizeInitialChildren(parentInstance, type, props) {
     return false
   },
 
-  prepareUpdate() {
-    return true
+  prepareUpdate(instance, type, oldProps, newProps) {
+    return diffProps(oldProps, newProps)
   },
 
   shouldSetTextContent() {
@@ -107,12 +107,15 @@ const JSBoxRenderer = Reconciler({
     parent.runtimeValue().$addSubview(child.getElement())
   },
 
-  commitTextUpdate(textInstance, oldText, newText) {},
+  // commitTextUpdate(textInstance, oldText, newText) {},
 
   commitMount(instance, updatePayload, type, oldProps, newProps) {},
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
-    instance.update(oldProps, newProps)
+    // instance.update(oldProps, newProps)
+    if (updatePayload) {
+      instance.update(updatePayload)
+    }
   },
 
   insertBefore(parentInstance, child, beforeChild) {
@@ -122,10 +125,7 @@ const JSBoxRenderer = Reconciler({
         : parentInstance
     parent
       .runtimeValue()
-      .$insertSubview_belowSubview(
-        child.getElement(),
-        beforeChild.getElement()
-      )
+      .$insertSubview_belowSubview(child.getElement(), beforeChild.getElement())
   },
 
   insertInContainerBefore(parentInstance, child, beforeChild) {
@@ -135,10 +135,7 @@ const JSBoxRenderer = Reconciler({
         : parentInstance
     parent
       .runtimeValue()
-      .$insertSubview_belowSubview(
-        child.getElement(),
-        beforeChild.getElement()
-      )
+      .$insertSubview_belowSubview(child.getElement(), beforeChild.getElement())
   },
 
   removeChild(parentInstance, child) {
@@ -166,7 +163,8 @@ const JSBoxRenderer = Reconciler({
   unhideTextInstance(instance) {
     instance.getElement().hidden = false
   }
-  // cloneInstance() {},
+
+  // cloneInstance(instance, updatePayload, type, oldProps, newProps) {}
 
   // createContainerChildSet() {},
 

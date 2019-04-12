@@ -2,10 +2,12 @@
 
 export default class View {
   constructor(type, props) {
+    let {layout, events} = props
     this.element = $ui.create({
       type,
       props,
-      events: props.events
+      layout, // layouts does not work via $ui.create
+      events
     })
   }
 
@@ -17,15 +19,10 @@ export default class View {
     return typeof prop !== 'undefined'
   }
 
-  update(oldProps, newProps) {
-    if (!oldProps) {
-      oldProps = {}
-    }
+  update(updatePayload) {
     const element = this.getElement()
-    Object.keys(newProps).forEach(prop => {
-      if (oldProps[prop] !== newProps[prop]) {
-        element[prop] = newProps[prop]
-      }
+    Object.keys(updatePayload).forEach(prop => {
+      element[prop] = updatePayload[prop]
     })
   }
 }
