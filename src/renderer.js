@@ -36,6 +36,7 @@ const JSBoxRenderer = Reconciler({
 
   prepareUpdate(instance, type, oldProps, newProps) {
     return diffProps(oldProps, newProps)
+    // return true
   },
 
   shouldSetTextContent() {
@@ -108,7 +109,7 @@ const JSBoxRenderer = Reconciler({
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
     // instance.update(oldProps, newProps)
     if (updatePayload) {
-      instance.update(updatePayload)
+      instance.update(oldProps, updatePayload)
     }
   },
 

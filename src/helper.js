@@ -7,8 +7,8 @@ export const emptyObject = {}
 export const {now} = Date
 
 export function shallowDiff(oldObj, newObj) {
-  const uniqueProps = new Set([...Object.keys(oldObj), ...Object.keys(newObj)])
-  const changedProps = Array.from(uniqueProps).filter(
+  let uniqueProps = new Set([...Object.keys(oldObj), ...Object.keys(newObj)])
+  let changedProps = Array.from(uniqueProps).filter(
     propName => oldObj[propName] !== newObj[propName]
   )
   return changedProps
@@ -18,6 +18,6 @@ export function diffProps(oldProps, newProps) {
   if (!oldProps) {
     oldProps = {}
   }
-  const changedProps = shallowDiff(oldProps, newProps)
+  let changedProps = shallowDiff(oldProps, newProps)
   return changedProps.length ? newProps : null
 }
