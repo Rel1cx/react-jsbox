@@ -77,10 +77,6 @@ const JSBoxRenderer = Reconciler({
 
   // cancelPassiveEffects() {},
 
-  isPrimaryRenderer() {
-    return true
-  },
-
   now,
 
   // isPrimaryRenderer: true,
@@ -107,9 +103,8 @@ const JSBoxRenderer = Reconciler({
   commitMount(instance, updatePayload, type, oldProps, newProps) {},
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
-    // instance.update(oldProps, newProps)
     if (updatePayload) {
-      instance.update(oldProps, updatePayload)
+      instance.update(updatePayload, newProps)
     }
   },
 

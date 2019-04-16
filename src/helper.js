@@ -19,5 +19,5 @@ export function diffProps(oldProps, newProps) {
     oldProps = {}
   }
   let changedProps = shallowDiff(oldProps, newProps)
-  return changedProps.length ? newProps : null
+  return changedProps.length ? changedProps : null
 }

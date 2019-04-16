@@ -19,12 +19,10 @@ export default class View {
     return typeof prop !== 'undefined'
   }
 
-  update(oldProps, updatePayload) {
+  update(updatePayload, newProps) {
     let element = this.getElement()
-    Object.keys(updatePayload).forEach(prop => {
-      if (oldProps[prop] !== updatePayload[prop]) {
-        element[prop] = updatePayload[prop]
-      }
+    updatePayload.forEach(prop => {
+      element[prop] = newProps[prop]
     })
   }
 }
