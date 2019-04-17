@@ -11,6 +11,7 @@ import * as React from 'react'
 import * as ReactJSBox from 'react-jsbox'
 const {width, height} = $device.info.screen
 
+// Create a root Container:
 $ui.render({
   props: {
     title: '',
@@ -29,7 +30,8 @@ $ui.render({
   ]
 })
 
-class App extends React.Component {
+// Create React component:
+class App extends React.PureComponent {
   constructor(props) {
     super(props)
     this.state = {
@@ -86,8 +88,8 @@ let styles = {
   textInput: $rect(10, 160, width - 20, 48)
 }
 
+// Create React elements and render them:
 ReactJSBox.render(<App />, $('root'))
-
 ```
 
 ![IMG_3367.PNG](https://i.loli.net/2019/04/17/5cb5fdb3e42b7.png)

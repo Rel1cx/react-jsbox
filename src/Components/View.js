@@ -19,6 +19,22 @@ export default class View {
     return typeof prop !== 'undefined'
   }
 
+  appendChild(child) {
+    this.getElement()
+      .runtimeValue()
+      .$addSubview(child.getElement())
+  }
+
+  removeChild(child) {
+    child.getElement().remove()
+  }
+
+  insertBefore(child, beforeChild) {
+    this.getElement()
+      .runtimeValue()
+      .$insertSubview_belowSubview(child.getElement(), beforeChild.getElement())
+  }
+
   update(updatePayload, newProps) {
     let element = this.getElement()
     updatePayload.forEach(prop => {

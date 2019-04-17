@@ -24,10 +24,7 @@ const JSBoxRenderer = Reconciler({
   },
 
   appendInitialChild(parentInstance, child) {
-    parentInstance
-      .getElement()
-      .runtimeValue()
-      .$addSubview(child.getElement())
+    parentInstance.appendChild(child)
   },
 
   finalizeInitialChildren(parentInstance, type, props) {
@@ -88,14 +85,15 @@ const JSBoxRenderer = Reconciler({
   supportsHydration: false,
 
   appendChild(parentInstance, child) {
-    parentInstance
-      .getElement()
-      .runtimeValue()
-      .$addSubview(child.getElement())
+    parentInstance.appendChild(child)
   },
 
   appendChildToContainer(parentInstance, child) {
-    parentInstance.runtimeValue().$addSubview(child.getElement())
+    const parent =
+      typeof parentInstance.getElement === 'function'
+        ? parentInstance.getElement()
+        : parentInstance
+    parent.runtimeValue().$addSubview(child.getElement())
   },
 
   // commitTextUpdate(textInstance, oldText, newText) {},
@@ -109,13 +107,7 @@ const JSBoxRenderer = Reconciler({
   },
 
   insertBefore(parentInstance, child, beforeChild) {
-    const parent =
-      typeof parentInstance.getElement === 'function'
-        ? parentInstance.getElement()
-        : parentInstance
-    parent
-      .runtimeValue()
-      .$insertSubview_belowSubview(child.getElement(), beforeChild.getElement())
+    parentInstance.insertBefore(child, beforeChild)
   },
 
   insertInContainerBefore(parentInstance, child, beforeChild) {
@@ -129,7 +121,7 @@ const JSBoxRenderer = Reconciler({
   },
 
   removeChild(parentInstance, child) {
-    child.getElement().remove()
+    parentInstance.removeChild(child)
   },
 
   removeChildFromContainer(parentInstance, child) {
