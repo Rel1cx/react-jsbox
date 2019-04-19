@@ -19,22 +19,8 @@ export default [
         extensions: ['.js'],
         runtimeHelpers: true,
         exclude: ['node_modules/@babel/**'],
-        presets: [
-          [
-            '@babel/preset-env',
-            {
-              targets: 'iOS 11'
-            }
-          ]
-        ],
-        plugins: [
-          [
-            '@babel/plugin-transform-runtime',
-            {
-              useESModules: false
-            }
-          ]
-        ]
+        presets: pkg.babel.presets,
+        plugins: pkg.babel.plugins
       })
     ]
   }

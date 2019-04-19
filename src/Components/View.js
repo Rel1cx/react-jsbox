@@ -1,5 +1,3 @@
-// const {shouldUpdate} = require('../helper')
-
 export default class View {
   constructor(type, props) {
     let {layout, events} = props
