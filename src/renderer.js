@@ -15,9 +15,13 @@ const JSBoxRenderer = Reconciler({
     return emptyObject
   },
 
-  prepareForCommit() {},
+  prepareForCommit() {
+    // noop
+  },
 
-  resetAfterCommit() {},
+  resetAfterCommit() {
+    // noop
+  },
 
   createInstance(type, props, internalInstanceHandle) {
     return new View(type, props)
@@ -33,7 +37,6 @@ const JSBoxRenderer = Reconciler({
 
   prepareUpdate(instance, type, oldProps, newProps) {
     return diffProps(oldProps, newProps)
-    // return true
   },
 
   shouldSetTextContent() {
@@ -98,7 +101,9 @@ const JSBoxRenderer = Reconciler({
 
   // commitTextUpdate(textInstance, oldText, newText) {},
 
-  commitMount(instance, updatePayload, type, oldProps, newProps) {},
+  commitMount(instance, updatePayload, type, oldProps, newProps) {
+    // noop
+  },
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
     if (updatePayload) {
@@ -128,7 +133,9 @@ const JSBoxRenderer = Reconciler({
     child.getElement().remove()
   },
 
-  resetTextContent() {},
+  resetTextContent() {
+    // noop
+  },
 
   hideInstance(instance) {
     instance.getElement().hidden = true

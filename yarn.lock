@@ -485,16 +485,6 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-transform-runtime@^7.4.3":
-  version "7.4.3"
-  resolved "http://r.cnpmjs.org/@babel/plugin-transform-runtime/download/@babel/plugin-transform-runtime-7.4.3.tgz#4d6691690ecdc9f5cb8c3ab170a1576c1f556371"
-  integrity sha1-TWaRaQ7NyfXLjDqxcKFXbB9VY3E=
-  dependencies:
-    "@babel/helper-module-imports" "^7.0.0"
-    "@babel/helper-plugin-utils" "^7.0.0"
-    resolve "^1.8.1"
-    semver "^5.5.1"
-
 "@babel/plugin-transform-shorthand-properties@^7.2.0":
   version "7.2.0"
   resolved "http://r.cnpmjs.org/@babel/plugin-transform-shorthand-properties/download/@babel/plugin-transform-shorthand-properties-7.2.0.tgz#6333aee2f8d6ee7e28615457298934a3b46198f0"
@@ -594,13 +584,6 @@
     invariant "^2.2.2"
     js-levenshtein "^1.1.3"
     semver "^5.5.0"
-
-"@babel/runtime@^7.4.3":
-  version "7.4.3"
-  resolved "http://r.cnpmjs.org/@babel/runtime/download/@babel/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
-  integrity sha1-eYiORSA0IjrZYJGHoK0f4NKtS9w=
-  dependencies:
-    regenerator-runtime "^0.13.2"
 
 "@babel/template@^7.1.0", "@babel/template@^7.2.2", "@babel/template@^7.4.0":
   version "7.4.0"
@@ -1868,6 +1851,15 @@ jest-worker@^24.0.0:
     merge-stream "^1.0.1"
     supports-color "^6.1.0"
 
+js-cleanup@^1.0.1:
+  version "1.0.1"
+  resolved "http://r.cnpmjs.org/js-cleanup/download/js-cleanup-1.0.1.tgz#1d38080c7ee92e1d2d2b94054d0a33c48951e0df"
+  integrity sha1-HTgIDH7pLh0tK5QFTQozxIlR4N8=
+  dependencies:
+    magic-string "^0.25.1"
+    perf-regexes "^1.0.1"
+    skip-regex "^1.0.2"
+
 js-levenshtein@^1.1.3:
   version "1.1.6"
   resolved "http://r.cnpmjs.org/js-levenshtein/download/js-levenshtein-1.1.6.tgz#c6cee58eb3550372df8deb85fad5ce66ce01d59d"
@@ -1985,7 +1977,7 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.4.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-magic-string@0.25.2, magic-string@^0.25.2:
+magic-string@0.25.2, magic-string@^0.25.1, magic-string@^0.25.2:
   version "0.25.2"
   resolved "http://r.cnpmjs.org/magic-string/download/magic-string-0.25.2.tgz#139c3a729515ec55e96e69e82a11fe890a293ad9"
   integrity sha1-E5w6cpUV7FXpbmnoKhH+iQopOtk=
@@ -2267,6 +2259,11 @@ path-type@^2.0.0:
   dependencies:
     pify "^2.0.0"
 
+perf-regexes@^1.0.1:
+  version "1.0.1"
+  resolved "http://r.cnpmjs.org/perf-regexes/download/perf-regexes-1.0.1.tgz#6da1d62f5a94bf9353a0451bccacf69068b75d0b"
+  integrity sha1-baHWL1qUv5NToEUbzKz2kGi3XQs=
+
 pify@^2.0.0:
   version "2.3.0"
   resolved "http://r.cnpmjs.org/pify/download/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
@@ -2375,11 +2372,6 @@ regenerate@^1.4.0:
   resolved "http://r.cnpmjs.org/regenerate/download/regenerate-1.4.0.tgz#4a856ec4b56e4077c557589cae85e7a4c8869a11"
   integrity sha1-SoVuxLVuQHfFV1icroXnpMiGmhE=
 
-regenerator-runtime@^0.13.2:
-  version "0.13.2"
-  resolved "http://r.cnpmjs.org/regenerator-runtime/download/regenerator-runtime-0.13.2.tgz#32e59c9a6fb9b1a4aff09b4930ca2d4477343447"
-  integrity sha1-MuWcmm+5saSv8JtJMMotRHc0NEc=
-
 regenerator-transform@^0.13.4:
   version "0.13.4"
   resolved "http://r.cnpmjs.org/regenerator-transform/download/regenerator-transform-0.13.4.tgz#18f6763cf1382c69c36df76c6ce122cc694284fb"
@@ -2449,7 +2441,7 @@ resolve-url@^0.2.1:
   resolved "http://r.cnpmjs.org/resolve-url/download/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
   integrity sha1-LGN/53yJOv0qZj/iGqkIAGjiBSo=
 
-resolve@^1.10.0, resolve@^1.3.2, resolve@^1.5.0, resolve@^1.8.1:
+resolve@^1.10.0, resolve@^1.3.2, resolve@^1.5.0:
   version "1.10.0"
   resolved "http://r.cnpmjs.org/resolve/download/resolve-1.10.0.tgz#3bdaaeaf45cc07f375656dfd2e54ed0810b101ba"
   integrity sha1-O9qur0XMB/N1ZW39LlTtCBCxAbo=
@@ -2483,6 +2475,14 @@ rollup-plugin-babel@^4.3.2:
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     rollup-pluginutils "^2.3.0"
+
+rollup-plugin-cleanup@^3.1.1:
+  version "3.1.1"
+  resolved "http://r.cnpmjs.org/rollup-plugin-cleanup/download/rollup-plugin-cleanup-3.1.1.tgz#d012faab5e212b1c4bfa8144ace70fc6ac7b3315"
+  integrity sha1-0BL6q14hKxxL+oFErOcPxqx7MxU=
+  dependencies:
+    js-cleanup "^1.0.1"
+    rollup-pluginutils "^2.3.3"
 
 rollup-plugin-commonjs@^9.3.4:
   version "9.3.4"
@@ -2530,7 +2530,7 @@ rollup-plugin-uglify@^6.0.2:
     serialize-javascript "^1.6.1"
     uglify-js "^3.4.9"
 
-rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.6.0:
+rollup-pluginutils@^2.3.0, rollup-pluginutils@^2.3.3, rollup-pluginutils@^2.6.0:
   version "2.6.0"
   resolved "http://r.cnpmjs.org/rollup-pluginutils/download/rollup-pluginutils-2.6.0.tgz#203706edd43dfafeaebc355d7351119402fc83ad"
   integrity sha1-IDcG7dQ9+v6uvDVdc1ERlAL8g60=
@@ -2637,6 +2637,11 @@ signal-exit@^3.0.2:
   version "3.0.2"
   resolved "http://r.cnpmjs.org/signal-exit/download/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
   integrity sha1-tf3AjxKH6hF4Yo5BXiUTK3NkbG0=
+
+skip-regex@^1.0.2:
+  version "1.0.2"
+  resolved "http://r.cnpmjs.org/skip-regex/download/skip-regex-1.0.2.tgz#ac655d77e7c771ac2b9f37585fea37bff56ad65b"
+  integrity sha1-rGVdd+fHcawrnzdYX+o3v/Vq1ls=
 
 slice-ansi@^2.1.0:
   version "2.1.0"

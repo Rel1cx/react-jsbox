@@ -13,10 +13,6 @@ export default class View {
     return this.element
   }
 
-  exists(prop) {
-    return typeof prop !== 'undefined'
-  }
-
   appendChild(child) {
     this.getElement()
       .runtimeValue()
@@ -34,9 +30,11 @@ export default class View {
   }
 
   update(updatePayload, newProps) {
-    let element = this.getElement()
+    const element = this.getElement()
     updatePayload.forEach(prop => {
-      element[prop] = newProps[prop]
+      element[prop] = Object.hasOwnProperty.call(newProps, prop)
+        ? newProps[prop]
+        : null
     })
   }
 }
