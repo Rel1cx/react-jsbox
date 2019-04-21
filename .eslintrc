@@ -1,14 +1,11 @@
 {
   "parser": "babel-eslint",
+  "extends": ["plugin:jsbox/default"],
   "env": {
     "node": true
   },
   "globals": {
-    "JSBox": "writable",
-    "$": "readonly",
-    "$ui": "readonly",
-    "$objc": "readonly",
-    "$thread": "readonly"
+    "JSBox": "writable"
   },
   "rules": {
     "semi": [2, "never"],
