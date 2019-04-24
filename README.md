@@ -4,6 +4,12 @@ This is a `Custom Renderer` for writing `JSBox` apps in `React`.
 
 This package is experimental **Use it at your own risk.**
 
+npm: <https://www.npmjs.com/package/react-jsbox>
+
+React doc: <https://reactjs.org/docs/getting-started.html>
+
+JSBox doc: <https://docs.xteko.com>
+
 ### Hello World
 
 ``` javascript
