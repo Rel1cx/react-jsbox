@@ -1,6 +1,6 @@
 import Reconciler from 'react-reconciler'
 import View from './Components/View'
-import {diffProps, emptyObject, now} from './helper'
+import {filterProps, emptyObject, now} from './helper'
 
 const JSBoxRenderer = Reconciler({
   getPublicInstance({element}) {
@@ -36,7 +36,7 @@ const JSBoxRenderer = Reconciler({
   },
 
   prepareUpdate(instance, type, oldProps, newProps) {
-    return diffProps(oldProps, newProps)
+    return filterProps(oldProps, newProps) || null
   },
 
   shouldSetTextContent() {
@@ -107,7 +107,7 @@ const JSBoxRenderer = Reconciler({
 
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
     if (updatePayload) {
-      instance.update(updatePayload, newProps)
+      instance.update(updatePayload)
     }
   },
 

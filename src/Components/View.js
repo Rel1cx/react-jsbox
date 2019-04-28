@@ -1,6 +1,6 @@
 export default class View {
   constructor(type, props) {
-    let { layout, events } = props
+    let {layout, events} = props
     this.element = $ui.create({
       type,
       props,
@@ -29,12 +29,10 @@ export default class View {
       .$insertSubview_belowSubview(child.getElement(), beforeChild.getElement())
   }
 
-  update(updatePayload, newProps) {
+  update(updatePayload) {
     const element = this.getElement()
-    updatePayload.forEach(prop => {
-      element[prop] = Object.hasOwnProperty.call(newProps, prop)
-        ? newProps[prop]
-        : null
+    Object.keys(updatePayload).forEach(prop => {
+      element[prop] = updatePayload[prop]
     })
   }
 }

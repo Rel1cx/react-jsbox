@@ -6,18 +6,38 @@ export const emptyObject = {}
 
 export const {now} = Date
 
-export function shallowDiff(oldObj, newObj) {
-  const uniqueProps = new Set([...Object.keys(oldObj), ...Object.keys(newObj)])
-  const changedProps = Array.from(uniqueProps).filter(
-    propName => oldObj[propName] !== newObj[propName]
-  )
-  return changedProps
+export const is = {
+  raw: a => a.__clsName !== undefined,
+  obj: a => a === Object(a),
+  str: a => typeof a === 'string',
+  num: a => typeof a === 'number',
+  und: a => a === void 0,
+  arr: a => Array.isArray(a),
+  equ(a, b) {
+    if (typeof a !== typeof b) return false
+    if (is.str(a) || is.num(a) || is.obj(a)) return a === b
+    if (is.arr(a) && a == b) return true
+    let i
+    for (i in a) if (!(i in b)) return false
+    for (i in b) if (a[i] !== b[i]) return false
+    return is.und(i) ? a === b : true
+  }
 }
 
-export function diffProps(oldProps, newProps) {
-  if (!oldProps) {
-    oldProps = {}
-  }
-  const changedProps = shallowDiff(oldProps, newProps)
-  return changedProps.length ? changedProps : null
+export function filterProps(oldProps = {}, newProps) {
+  const sameProps = Object.keys(newProps).filter(key =>
+    is.equ(newProps[key], oldProps[key])
+  )
+  const filteredProps = [
+    ...sameProps,
+    'layout',
+    'events',
+    'children',
+    'key',
+    'ref'
+  ].reduce((acc, prop) => {
+    let {[prop]: _, ...rest} = acc
+    return rest
+  }, newProps)
+  return filteredProps
 }
