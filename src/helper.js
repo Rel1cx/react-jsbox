@@ -6,6 +6,8 @@ export const emptyObject = {}
 
 export const {now} = Date
 
+// Based on react-three-fiber ((c) 2019 Paul Henschel, MIT).
+// https://github.com/drcmda/react-three-fiber/blob/master/src/reconciler.tsx#L13
 export const is = {
   raw: a => a.__clsName !== undefined,
   obj: a => a === Object(a),
