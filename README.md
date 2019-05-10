@@ -8,11 +8,11 @@ npm: <https://www.npmjs.com/package/react-jsbox>
 
 React doc: <https://reactjs.org/docs/getting-started.html>
 
-JSBox doc: <https://docs.xteko.com>
+JSBox doc: <https://docs.xteko.com/#/en/quickstart/intro>
 
 ### Hello World
 
-``` javascript
+```javascript
 import * as React from 'react'
 import * as ReactJSBox from 'react-jsbox'
 const {width, height} = $device.info.screen
@@ -97,5 +97,3 @@ let styles = {
 // Create React elements and render them:
 ReactJSBox.render(<App />, $('root'))
 ```
-
-![IMG_3367.PNG](https://i.loli.net/2019/04/17/5cb5fdb3e42b7.png)
