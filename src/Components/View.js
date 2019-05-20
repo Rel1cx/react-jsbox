@@ -1,7 +1,7 @@
 export default class View {
   constructor(type, props) {
-    let {layout, events} = props
-    this.element = $ui.create({
+    const {layout, events} = props
+    this._element = $ui.create({
       type,
       props,
       layout, // layouts does not work via $ui.create
@@ -9,28 +9,26 @@ export default class View {
     })
   }
 
-  getElement() {
-    return this.element
+  get element() {
+    return this._element
   }
 
   appendChild(child) {
-    this.getElement()
-      .runtimeValue()
-      .$addSubview(child.getElement())
+    this.element.runtimeValue().$addSubview(child.element)
   }
 
   removeChild(child) {
-    child.getElement().remove()
+    child.element.remove()
   }
 
   insertBefore(child, beforeChild) {
-    this.getElement()
+    this.element
       .runtimeValue()
-      .$insertSubview_belowSubview(child.getElement(), beforeChild.getElement())
+      .$insertSubview_belowSubview(child.element, beforeChild.element)
   }
 
   update(updatePayload) {
-    const element = this.getElement()
+    const element = this.element
     Object.keys(updatePayload).forEach(prop => {
       element[prop] = updatePayload[prop]
     })

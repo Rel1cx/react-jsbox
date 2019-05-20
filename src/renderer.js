@@ -94,9 +94,9 @@ const JSBoxRenderer = Reconciler({
   appendChildToContainer(parentInstance, child) {
     const parent =
       typeof parentInstance.getElement === 'function'
-        ? parentInstance.getElement()
+        ? parentInstance.element
         : parentInstance
-    parent.runtimeValue().$addSubview(child.getElement())
+    parent.runtimeValue().$addSubview(child.element)
   },
 
   // commitTextUpdate(textInstance, oldText, newText) {},
@@ -118,11 +118,11 @@ const JSBoxRenderer = Reconciler({
   insertInContainerBefore(parentInstance, child, beforeChild) {
     const parent =
       typeof parentInstance.getElement === 'function'
-        ? parentInstance.getElement()
+        ? parentInstance.element
         : parentInstance
     parent
       .runtimeValue()
-      .$insertSubview_belowSubview(child.getElement(), beforeChild.getElement())
+      .$insertSubview_belowSubview(child.element, beforeChild.element)
   },
 
   removeChild(parentInstance, child) {
@@ -130,7 +130,7 @@ const JSBoxRenderer = Reconciler({
   },
 
   removeChildFromContainer(parentInstance, child) {
-    child.getElement().remove()
+    child.element.remove()
   },
 
   resetTextContent() {
@@ -138,19 +138,19 @@ const JSBoxRenderer = Reconciler({
   },
 
   hideInstance(instance) {
-    instance.getElement().hidden = true
+    instance.element.hidden = true
   },
 
   unhideInstance(instance) {
-    instance.getElement().hidden = false
+    instance.element.hidden = false
   },
 
   hideTextInstance(instance) {
-    instance.getElement().hidden = true
+    instance.element.hidden = true
   },
 
   unhideTextInstance(instance) {
-    instance.getElement().hidden = false
+    instance.element.hidden = false
   }
 
   // cloneInstance(instance, updatePayload, type, oldProps, newProps) {}
