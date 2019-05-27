@@ -37,10 +37,10 @@
     ]
   },
   "peerDependencies": {
-    "react": "canary"
+    "react": "^16.8.6"
   },
   "dependencies": {
-    "react-reconciler": "canary"
+    "react-reconciler": "^0.20.4"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

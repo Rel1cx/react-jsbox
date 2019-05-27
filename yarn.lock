@@ -2318,15 +2318,15 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
 
-react-reconciler@canary:
-  version "0.0.0-50b50c26f"
-  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.0.0-50b50c26f.tgz#478ce7d3f8c1beb1a2c3d087c6634db31632b2c5"
-  integrity sha512-kS7iATiAeUbF65svnyI1c+pm4WVTDC5VxSdWRP4PsJbhkisS23yuviLxcLOXT7L0nBSk5RQZgnYizvb4S3endA==
+react-reconciler@^0.20.4:
+  version "0.20.4"
+  resolved "https://registry.yarnpkg.com/react-reconciler/-/react-reconciler-0.20.4.tgz#3da6a95841592f849cb4edd3d38676c86fd920b2"
+  integrity sha512-kxERc4H32zV2lXMg/iMiwQHOtyqf15qojvkcZ5Ja2CPkjVohHw9k70pdDBwrnQhLVetUJBSYyqU3yqrlVTOajA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.2"
-    scheduler "0.0.0-50b50c26f"
+    scheduler "^0.13.6"
 
 read-pkg-up@^2.0.0:
   version "2.0.0"
@@ -2575,10 +2575,10 @@ safe-regex@^1.1.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-scheduler@0.0.0-50b50c26f:
-  version "0.0.0-50b50c26f"
-  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.0.0-50b50c26f.tgz#09bedde1c64d7a042b557bee2dbf5faf5fd58a50"
-  integrity sha512-LBN3zrP8iBdILOoYxybFtkU7j+ldZTHORKyYyVLwXuIwGQ8/Xhs5VZjNQ5R2Xru2zv3GGVpJSbd47EpDuD2EHw==
+scheduler@^0.13.6:
+  version "0.13.6"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.6.tgz#466a4ec332467b31a91b9bf74e5347072e4cd889"
+  integrity sha512-IWnObHt413ucAYKsD9J1QShUKkbKLQQHdxRyw73sw4FN26iWr3DY/H34xGPe4nmL1DwXyWmSWmMrA9TfQbE/XQ==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"

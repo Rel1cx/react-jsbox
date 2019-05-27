@@ -57,7 +57,7 @@ const JSBoxRenderer = Reconciler({
   // TODO: Fix Schedule
   scheduleDeferredCallback(callback, options = { timeout: 0 }) {
     scheduledCallback = callback
-    const timeoutId = setTimeout(setTimeoutCallback, 1)
+    const timeoutId = setTimeout(setTimeoutCallback, options.timeout)
     return timeoutId
   },
 
