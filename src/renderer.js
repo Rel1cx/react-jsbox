@@ -2,6 +2,9 @@ import Reconciler from 'react-reconciler'
 import View from './Components/View'
 import { filterProps, emptyObject, now } from './helper'
 
+let scheduledCallback = null
+let frameDeadline = 0
+
 const JSBoxRenderer = Reconciler({
   getPublicInstance({ element }) {
     return element
@@ -51,18 +54,16 @@ const JSBoxRenderer = Reconciler({
     return null
   },
 
-  scheduleDeferredCallback(frameCallback) {
-    return setTimeout(() => {
-      frameCallback({
-        timeRemaining() {
-          return Infinity
-        }
-      })
-    }, 0)
+  // TODO: Fix Schedule
+  scheduleDeferredCallback(callback, options = { timeout: 0 }) {
+    scheduledCallback = callback
+    const timeoutId = setTimeout(setTimeoutCallback, 1)
+    return timeoutId
   },
 
-  cancelDeferredCallback(id) {
-    clearTimeout(id)
+  cancelDeferredCallback(callbackID) {
+    scheduledCallback = null
+    clearTimeout(callbackID)
   },
 
   // shouldYield() {},
