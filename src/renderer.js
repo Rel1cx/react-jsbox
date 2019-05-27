@@ -1,9 +1,9 @@
 import Reconciler from 'react-reconciler'
 import View from './Components/View'
-import {filterProps, emptyObject, now} from './helper'
+import { filterProps, emptyObject, now } from './helper'
 
 const JSBoxRenderer = Reconciler({
-  getPublicInstance({element}) {
+  getPublicInstance({ element }) {
     return element
   },
 
@@ -92,10 +92,7 @@ const JSBoxRenderer = Reconciler({
   },
 
   appendChildToContainer(parentInstance, child) {
-    const parent =
-      typeof parentInstance.getElement === 'function'
-        ? parentInstance.element
-        : parentInstance
+    const parent = parentInstance.element || parentInstance
     parent.runtimeValue().$addSubview(child.element)
   },
 
@@ -116,10 +113,7 @@ const JSBoxRenderer = Reconciler({
   },
 
   insertInContainerBefore(parentInstance, child, beforeChild) {
-    const parent =
-      typeof parentInstance.getElement === 'function'
-        ? parentInstance.element
-        : parentInstance
+    const parent = parentInstance.element || parentInstance
     parent
       .runtimeValue()
       .$insertSubview_belowSubview(child.element, beforeChild.element)

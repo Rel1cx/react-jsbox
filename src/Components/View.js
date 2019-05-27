@@ -1,6 +1,6 @@
 export default class View {
   constructor(type, props) {
-    const {layout, events} = props
+    const { layout, events } = props
     this._element = $ui.create({
       type,
       props,

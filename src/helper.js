@@ -4,7 +4,7 @@ export const emptyObject = {}
 // HighRes but slower then Date.now during invoke
 // const now = () => $objc('NSDate').invoke('date').invoke('timeIntervalSince1970') * 1000
 
-export const {now} = Date
+export const { now } = Date
 
 // Based on react-three-fiber ((c) 2019 Paul Henschel, MIT).
 // https://github.com/drcmda/react-three-fiber/blob/master/src/reconciler.tsx#L13
@@ -38,7 +38,7 @@ export function filterProps(oldProps = {}, newProps) {
     'key',
     'ref'
   ].reduce((acc, prop) => {
-    let {[prop]: _, ...rest} = acc
+    let { [prop]: _, ...rest } = acc
     return rest
   }, newProps)
   return filteredProps
