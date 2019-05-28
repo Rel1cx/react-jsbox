@@ -4,7 +4,6 @@ import babel from 'rollup-plugin-babel'
 import replace from 'rollup-plugin-modify'
 import cleanup from 'rollup-plugin-cleanup'
 import progress from 'rollup-plugin-progress'
-import visualizer from 'rollup-plugin-visualizer'
 
 import pkg from './package.json'
 
@@ -29,7 +28,6 @@ export default [
       }),
       commonjs(),
       cleanup(),
-      visualizer()
     ]
   }
 ]
