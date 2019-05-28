@@ -9,6 +9,8 @@ export default class View {
     })
   }
 
+  _element = undefined
+
   get element() {
     return this._element
   }

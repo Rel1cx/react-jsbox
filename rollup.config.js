@@ -3,19 +3,23 @@ import commonjs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
 import replace from 'rollup-plugin-modify'
 import cleanup from 'rollup-plugin-cleanup'
+import progress from 'rollup-plugin-progress'
+import visualizer from 'rollup-plugin-visualizer'
+
 import pkg from './package.json'
 
 export default [
   {
     input: 'src/index.js',
     external: ['react'],
-    output: [{file: pkg.main, format: 'cjs'}],
+    treeshake: true,
+    output: [{ file: pkg.main, format: 'cjs' }],
     plugins: [
-      resolve(),
+      progress(),
       replace({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
-      commonjs(),
+      resolve(),
       babel({
         extensions: ['.js'],
         runtimeHelpers: true,
@@ -23,7 +27,9 @@ export default [
         presets: pkg.babel.presets,
         plugins: pkg.babel.plugins
       }),
-      cleanup()
+      commonjs(),
+      cleanup(),
+      visualizer()
     ]
   }
 ]
