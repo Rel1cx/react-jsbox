@@ -1,5 +1,4 @@
 import View from './Components/View'
-import warn from 'warning'
 import { filterProps, emptyObject, now, debug } from './helper'
 
 const NO_CONTEXT = true
