@@ -1,6 +1,6 @@
 # react-jsbox-renderer
 
-This is a `Custom Renderer` for writing `JSBox` apps in `React`.
+A `Custom Renderer` for writing `JSBox` apps in `React`.
 
 This package is experimental **Use it at your own risk.**
 
@@ -10,12 +10,123 @@ React doc: <https://reactjs.org/docs/getting-started.html>
 
 JSBox doc: <https://docs.xteko.com/#/en/quickstart/intro>
 
-### Hello World
+### Examples
+
+#### Classes
+
+```javascript
+import React from 'react'
+import ReactJSBox from 'react-jsbox'
+const { width, height } = $device.info.screen
+
+// Create a root Container:
+$ui.render({
+  props: {
+    title: '',
+    debugging: true
+  },
+  views: [
+    {
+      type: 'view',
+      props: {
+        id: 'root'
+      },
+      layout(make, view) {
+        make.edges.equalTo(view.super.safeArea)
+      }
+    }
+  ]
+})
+
+// Create React Components:
+class App extends React.PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      count: 0
+    }
+    this._listTemplate = {
+      props: {
+        bgcolor: $color('#fff')
+      },
+      views: [
+        {
+          type: 'label',
+          props: {
+            bgcolor: $color('#474b51'),
+            textColor: $color('#abb2bf'),
+            align: $align.center,
+            font: $font('iosevka', 24)
+          },
+          layout: $layout.fill
+        }
+      ]
+    }
+  }
+
+  render() {
+    return (
+      <view frame={styles.container}>
+        <label
+          frame={styles.text}
+          align={$align.center}
+          font={$font('ArialRoundedMTBold', 26)}
+          text={String(this.state.count)}
+          autoFontSize={true}
+        />
+        <list
+          frame={styles.list}
+          radius={10}
+          bgcolor={$color('#ededed')}
+          data={['INCREASE', 'DECREASE', 'RESET']}
+          template={this._listTemplate}
+          events={{
+            didSelect: (sender, { row }, data) =>
+              this.setState({
+                count: this.state.count + [1, -1, -this.state.count][row]
+              })
+          }}
+        />
+      </view>
+    )
+  }
+}
+
+let styles = {
+  container: $rect(0, 0, width, height - 40),
+  text: $rect(0, 64, width, 30),
+  list: $rect(0, 200, width, height - 280)
+}
+
+// Create React elements and render them:
+ReactJSBox.render(<App />, $('root'))
+```
+
+#### Use ref to access JSBox view instance
 
 ```javascript
 import * as React from 'react'
 import * as ReactJSBox from 'react-jsbox'
-const {width, height} = $device.info.screen
+const { width, height } = $device.info.screen
+
+// Create a root Container:
+$ui.render({
+  props: {
+    title: '',
+    debugging: true
+  },
+  views: [
+    {
+      type: 'view',
+      props: {
+        id: 'root'
+      },
+      layout(make, view) {
+        make.edges.equalTo(view.super.safeArea)
+      }
+    }
+  ]
+})
 
 // Create a root Container:
 $ui.render({
@@ -46,7 +157,7 @@ class App extends React.PureComponent {
   }
 
   handleTextChange(sender) {
-    this.setState({text: sender.text})
+    this.setState({ text: sender.text })
   }
 
   render() {
@@ -70,6 +181,7 @@ class App extends React.PureComponent {
         />
         <input
           id={'textInput'}
+          // use ref to access JSBox view instance
           ref={input => {
             if (!input) return
             this._input = input
@@ -92,6 +204,98 @@ let styles = {
   container: $rect(0, 0, width, height - 40),
   text: $rect(0, 64, width, 30),
   textInput: $rect(10, 160, width - 20, 48)
+}
+
+// Create React elements and render them:
+ReactJSBox.render(<App />, $('root'))
+```
+
+#### React Hooks
+
+```javascript
+import React from 'react'
+import ReactJSBox from 'react-jsbox'
+const { width, height } = $device.info.screen
+
+// Create a root Container:
+$ui.render({
+  props: {
+    title: '',
+    debugging: true
+  },
+  views: [
+    {
+      type: 'view',
+      props: {
+        id: 'root'
+      },
+      layout(make, view) {
+        make.edges.equalTo(view.super.safeArea)
+      }
+    }
+  ]
+})
+
+const counterReducer = (state, action) => {
+  switch (action.type) {
+    case 'INCREASE':
+      return { ...state, count: state.count + 1 }
+    case 'DECREASE':
+      return { ...state, count: state.count - 1 }
+    case 'RESET':
+      return { ...state, count: 0 }
+    default:
+      throw new Error()
+  }
+}
+
+const App = () => {
+  const [state, dispatch] = React.useReducer(counterReducer, { count: 0 })
+  const listTemplate = {
+    props: {
+      bgcolor: $color('#fff')
+    },
+    views: [
+      {
+        type: 'label',
+        props: {
+          bgcolor: $color('#474b51'),
+          textColor: $color('#abb2bf'),
+          align: $align.center,
+          font: $font('iosevka', 24)
+        },
+        layout: $layout.fill
+      }
+    ]
+  }
+
+  return (
+    <view frame={styles.container}>
+      <label
+        frame={styles.text}
+        align={$align.center}
+        font={$font('ArialRoundedMTBold', 26)}
+        text={String(state.count)}
+        autoFontSize={true}
+      />
+      <list
+        frame={styles.list}
+        radius={10}
+        bgcolor={$color('#ededed')}
+        data={['INCREASE', 'DECREASE', 'RESET']}
+        template={listTemplate}
+        events={{
+          didSelect: (sender, indexPath, data) => dispatch({ type: data })
+        }}
+      />
+    </view>
+  )
+}
+
+let styles = {
+  container: $rect(0, 0, width, height - 40),
+  text: $rect(0, 64, width, 30),
+  list: $rect(0, 200, width, height - 280)
 }
 
 // Create React elements and render them:
