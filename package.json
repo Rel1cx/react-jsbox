@@ -54,8 +54,7 @@
     "react": "alpha"
   },
   "dependencies": {
-    "react-reconciler": "alpha",
-    "warning": "^4.0.3"
+    "react-reconciler": "alpha"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
