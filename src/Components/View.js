@@ -9,7 +9,7 @@ export default class View {
     })
   }
 
-  _element = undefined
+  _element = null
 
   get element() {
     return this._element

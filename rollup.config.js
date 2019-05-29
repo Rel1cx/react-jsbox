@@ -4,6 +4,7 @@ import babel from 'rollup-plugin-babel'
 import replace from 'rollup-plugin-modify'
 import cleanup from 'rollup-plugin-cleanup'
 import progress from 'rollup-plugin-progress'
+import { terser } from 'rollup-plugin-terser'
 
 import pkg from './package.json'
 
@@ -27,7 +28,8 @@ export default [
         plugins: pkg.babel.plugins
       }),
       commonjs(),
-      cleanup(),
+      terser(),
+      cleanup()
     ]
   }
 ]

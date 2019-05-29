@@ -1,4 +1,11 @@
-const DEBUG = true
+const DEBUG = false
+
+// Fix JSBox console.log Circular Error
+if (/\[native code\]/.test(console.log.toString())) {
+  global.console.log = hookArgs(console.log, (...args) =>
+    args.map(arg => JSON.parse(JSON.stringify(arg, getCircularReplacer())))
+  )
+}
 
 export const emptyFunction = () => {}
 export const emptyObject = {}

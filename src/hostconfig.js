@@ -1,34 +1,18 @@
 import View from './Components/View'
 import warn from 'warning'
-import {
-  filterProps,
-  emptyObject,
-  now,
-  getCircularReplacer,
-  hookArgs,
-  debug
-} from './helper'
-
-// Fix JSBox console.log Circular Error
-if (/\[native code\]/.test(console.log.toString())) {
-  global.console.log = hookArgs(console.log, (...args) =>
-    args.map(arg => JSON.parse(JSON.stringify(arg, getCircularReplacer())))
-  )
-}
+import { filterProps, emptyObject, now, debug } from './helper'
 
 const NO_CONTEXT = true
 
 export default class HostConfig {
-  @debug
   getPublicInstance({ element }) {
     return element
   }
 
-  @debug
   getRootHostContext() {
     return NO_CONTEXT
   }
-  @debug
+
   getChildHostContext() {
     return NO_CONTEXT
   }
@@ -51,7 +35,6 @@ export default class HostConfig {
     parentInstance.appendChild(child)
   }
 
-  @debug
   finalizeInitialChildren(parentInstance, type, props) {
     return false
   }
@@ -61,7 +44,6 @@ export default class HostConfig {
     return filterProps(oldProps, newProps) || null
   }
 
-  @debug
   shouldSetTextContent() {
     return false
   }
@@ -74,10 +56,8 @@ export default class HostConfig {
     return null
   }
 
-  @debug
   setTimeout = setTimeout
 
-  @debug
   clearTimeout = clearTimeout
 
   now = now
