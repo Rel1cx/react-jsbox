@@ -374,9 +374,7 @@ const useMotion = (initialState = defaultState) => {
       handler
     })
 
-    return () => {
-      $motion.stopUpdates()
-    }
+    return () => $motion.stopUpdates()
   }, [])
 
   return [state]
