@@ -130,25 +130,6 @@ $ui.render({
   ]
 })
 
-// Create a root Container:
-$ui.render({
-  props: {
-    title: '',
-    debugging: true
-  },
-  views: [
-    {
-      type: 'view',
-      props: {
-        id: 'root'
-      },
-      layout(make, view) {
-        make.edges.equalTo(view.super.safeArea)
-      }
-    }
-  ]
-})
-
 // Create React component:
 class App extends React.PureComponent {
   constructor(props) {
