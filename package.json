@@ -16,7 +16,7 @@
     "prepublish": "rollup -c"
   },
   "author": "Eva1ent",
-  "repository": "github:186c0/react-jsbox-renderer",
+  "repository": "github:Nicify/react-jsbox-renderer",
   "babel": {
     "presets": [
       [
