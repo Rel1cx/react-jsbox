@@ -4,7 +4,9 @@ const DEBUG = false
 if (/\[native code\]/.test(console.log.toString())) {
   global.console.log = hookArgs(console.log, (...args) =>
     args.map(arg =>
-      arg === undefined ? 'undefined' : JSON.stringify(arg, getCircularReplacer())
+      arg === undefined
+        ? 'undefined'
+        : JSON.parse(JSON.stringify(arg, getCircularReplacer()))
     )
   )
 }
