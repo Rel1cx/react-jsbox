@@ -3,7 +3,9 @@ const DEBUG = false
 // Fix JSBox console.log Circular Error
 if (/\[native code\]/.test(console.log.toString())) {
   global.console.log = hookArgs(console.log, (...args) =>
-    args.map(arg => JSON.parse(JSON.stringify(arg, getCircularReplacer())))
+    args.map(arg =>
+      arg === undefined ? 'undefined' : JSON.stringify(arg, getCircularReplacer())
+    )
   )
 }
 
@@ -13,7 +15,7 @@ export const emptyObject = {}
 // HighRes but slower then Date.now during invoke
 // const now = () => $objc('NSDate').invoke('date').invoke('timeIntervalSince1970') * 1000
 
-export const { now } = Date
+export const {now} = Date
 
 // Based on react-three-fiber ((c) 2019 Paul Henschel, MIT).
 // https://github.com/drcmda/react-three-fiber/blob/master/src/reconciler.tsx#L13
@@ -47,7 +49,7 @@ export function filterProps(oldProps = {}, newProps) {
     'key',
     'ref'
   ].reduce((acc, prop) => {
-    let { [prop]: _, ...rest } = acc
+    let {[prop]: _, ...rest} = acc
     return rest
   }, newProps)
   return filteredProps
@@ -69,8 +71,10 @@ export function getCircularReplacer() {
 export function hookArgs(originalFn, argsGetter) {
   return function() {
     let args = argsGetter.apply(this, arguments)
-    for (let i = 0; i < args.length; ++i) {
-      arguments[i] = args[i]
+    if (Array.isArray(args)) {
+      for (let i = 0; i < args.length; ++i) {
+        arguments[i] = args[i]
+      }
     }
     return originalFn.apply(this, arguments)
   }
