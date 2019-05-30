@@ -3,7 +3,7 @@ import {LAPolicy} from '../constants'
 
 const useAuth = (
   evaluatePolicy = LAPolicy.kLAPolicyDeviceOwnerAuthenticationWithBiometrics,
-  localizedReason = `${$addin.current.name} request authentication`,
+  localizedReason = `${$addin.current.name} apply for authentication`,
   handler = () => {}
 ) => {
   const reply = $block('void, BOOL', success =>
