@@ -691,10 +691,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.8.tgz#e5d71173c95533be9842b2c798978f095f912aab"
   integrity sha512-szA3x/3miL90ZJxUCzx9haNbK5/zmPieGraZEe4WI+3srN0eGLiT22NXeMHmyhNEopn+IrxqMc7wdVwvPl8meg==
 
-"@types/node@^12.0.2":
-  version "12.0.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.2.tgz#3452a24edf9fea138b48fad4a0a028a683da1e40"
-  integrity sha512-5tabW/i+9mhrfEOUcLDu2xBPsHJ+X5Orqy9FKpale3SjDA17j5AEpYq5vfy3oAeAHGcvANRCO3NV3d2D6q3NiA==
+"@types/node@^12.0.3":
+  version "12.0.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.4.tgz#46832183115c904410c275e34cf9403992999c32"
+  integrity sha512-j8YL2C0fXq7IONwl/Ud5Kt0PeXw22zGERt+HSSnwbKOJVsAGkEz3sFCYwaF9IOuoG1HOtE0vKCj6sXF7Q0+Vaw==
 
 "@types/resolve@0.0.8":
   version "0.0.8"
@@ -1366,6 +1366,11 @@ eslint-plugin-jsbox@^0.1.1:
   dependencies:
     requireindex "^1.2.0"
 
+eslint-plugin-react-hooks@^1.6.0:
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react-hooks/-/eslint-plugin-react-hooks-1.6.0.tgz#348efcda8fb426399ac7b8609607c7b4025a6f5f"
+  integrity sha512-lHBVRIaz5ibnIgNG07JNiAuBUeKhEf8l4etNx5vfAEwqQ5tcuK3jV9yjmopPgQDagQb7HwIuQVsE3IVcGrRnag==
+
 eslint-rule-composer@^0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/eslint-rule-composer/-/eslint-rule-composer-0.3.0.tgz#79320c927b0c5c0d3d3d2b76c8b4a488f25bbaf9"
@@ -1476,6 +1481,11 @@ estree-walker@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.6.0.tgz#5d865327c44a618dde5699f763891ae31f257dae"
   integrity sha512-peq1RfVAVzr3PU/jL31RaOjUKLoZJpObQWJJ+LgfcxDUifyLZ1RjPQZTl0pzj2uJ45b7A7XpyppXvxdEqzo4rw==
+
+estree-walker@^0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/estree-walker/-/estree-walker-0.6.1.tgz#53049143f40c6eb918b23671d1fe3219f3a1b362"
+  integrity sha512-SqmZANLWS0mnatqbSfRP5g8OXZC12Fgg1IwNtLsyHDzJizORW4khDfjPqJZsemPWBB2uqykUah5YpQ6epsqC/w==
 
 esutils@^2.0.2:
   version "2.0.2"
@@ -2583,6 +2593,14 @@ rollup-plugin-commonjs@^10.0.0:
     resolve "^1.10.1"
     rollup-pluginutils "^2.7.0"
 
+rollup-plugin-eslint@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-eslint/-/rollup-plugin-eslint-6.0.0.tgz#4b182c0586330ed25c90bd41309feec458152303"
+  integrity sha512-iNH5l1LYNPCKCwQuLWzXdE0nd8d96yXuefP6YxDsh9WCF/+IS9n1n6F3yM/AMWEyIdquDwe7upG3vEYoV4BDpA==
+  dependencies:
+    eslint "^5.16.0"
+    rollup-pluginutils "^2.7.1"
+
 rollup-plugin-modify@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/rollup-plugin-modify/-/rollup-plugin-modify-3.0.0.tgz#5326e11dfec247e8bbdd9507f3da1da1e5c7818b"
@@ -2591,16 +2609,16 @@ rollup-plugin-modify@^3.0.0:
     magic-string "0.25.2"
     ospec "3.1.0"
 
-rollup-plugin-node-resolve@^5.0.0:
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-5.0.0.tgz#754abf4841ed4bab2241551cba0a11d04c57f290"
-  integrity sha512-JUFr7DkFps3div9DYwpSg0O+s8zuSSRASUZUVNx6h6zhw2m8vcpToeS68JDPsFbmisMVSMYK0IxftngCRv7M9Q==
+rollup-plugin-node-resolve@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-5.0.1.tgz#4619eafdf2ecb4e8ed24177ba47d7f11f027d38b"
+  integrity sha512-9s3dTu44SKQZM/Pwll42GpqXgT+WdvO0Ga01lF8cwZqJGqRUATtD+GrP3uIzZdpnbPonEJbVasfFt80VGPQqKw==
   dependencies:
     "@types/resolve" "0.0.8"
     builtin-modules "^3.1.0"
     is-module "^1.0.0"
-    resolve "^1.10.1"
-    rollup-pluginutils "^2.7.0"
+    resolve "^1.11.0"
+    rollup-pluginutils "^2.8.0"
 
 rollup-plugin-progress@^1.1.1:
   version "1.1.1"
@@ -2643,13 +2661,20 @@ rollup-pluginutils@^2.7.0:
     estree-walker "^0.6.0"
     micromatch "^3.1.10"
 
-rollup@^1.12.4:
-  version "1.12.4"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.12.4.tgz#f2cb825300cea6601f12a4c3d2f3918807b27403"
-  integrity sha512-sHg0F05oTMJzM592MWU8irsPx8LIFMKSCnEkcp6vp/gnj+oJ9GJEBW9hl8jUqy2L6Q2uUxFzPgvoExLbfuSODA==
+rollup-pluginutils@^2.7.1, rollup-pluginutils@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.0.tgz#d7ece1502958a35748a74080c7ac5e95681bcbe9"
+  integrity sha512-8TomM64VQH6w+13lemFHX5sZYxLCxHhf9gzdRUEFNXH3Z+0CDYy7Grzqa6YUbZc0GIrfbWoD5GXZ3o5Teqh9ew==
+  dependencies:
+    estree-walker "^0.6.1"
+
+rollup@^1.13.0:
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.13.0.tgz#8313fc6d9762e28301b4b89cc0a56233659a67b6"
+  integrity sha512-pW4G4cQmtEmbg4/CoFYc2AYeKiGpMAVak7kFpch1UJnYkXMn/34L8cD0kxkmjJNpJ/NagOHVdCwdkbtCEuDEww==
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "^12.0.2"
+    "@types/node" "^12.0.3"
     acorn "^6.1.1"
 
 run-async@^2.2.0:

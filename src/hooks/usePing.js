@@ -31,7 +31,7 @@ const usePing = (option = defaultOption) => {
     })
 
     return () => $network.stopPinging()
-  }, [])
+  }, [option])
 
   return [state]
 }

@@ -8,7 +8,7 @@ const useDebounce = (fn, ms = 0, args = []) => {
       // if args change then clear timeout
       clearTimeout(handle)
     }
-  }, args)
+  }, [args, fn, ms])
 }
 
 export default useDebounce

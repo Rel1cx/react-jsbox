@@ -1,11 +1,11 @@
-import resolve from 'rollup-plugin-node-resolve'
-import commonjs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
-import replace from 'rollup-plugin-modify'
 import cleanup from 'rollup-plugin-cleanup'
+import commonjs from 'rollup-plugin-commonjs'
 import progress from 'rollup-plugin-progress'
-import { terser } from 'rollup-plugin-terser'
-
+import replace from 'rollup-plugin-modify'
+import resolve from 'rollup-plugin-node-resolve'
+import {eslint} from 'rollup-plugin-eslint'
+import {terser} from 'rollup-plugin-terser'
 import pkg from './package.json'
 
 export default [
@@ -13,9 +13,10 @@ export default [
     input: 'src/index.js',
     external: ['react'],
     treeshake: true,
-    output: [{ file: pkg.main, format: 'cjs' }],
+    output: [{file: pkg.main, format: 'cjs'}],
     plugins: [
       progress(),
+      eslint(),
       replace({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),

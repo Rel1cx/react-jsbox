@@ -9,12 +9,7 @@ const useCache = (key, initialValue) => {
     }
     return cacheValue
   })
-
-  useEffect(() => {
-    try {
-      $cache.set(key, state)
-    } catch {}
-  })
+  useEffect(() => $cache.set(key, state))
 
   return [state, setState]
 }

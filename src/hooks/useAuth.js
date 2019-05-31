@@ -21,7 +21,7 @@ const useAuth = (
       reply
     )
     return () => $objc_release(LAContext)
-  }, [])
+  })
 }
 
 export default useAuth
