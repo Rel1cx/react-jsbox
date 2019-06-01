@@ -21,19 +21,29 @@ const defaultOption = {
 
 const usePing = (option = defaultOption) => {
   const [state, setState] = useState(initialState)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     $network.startPinging({
       ...option,
       didReceiveReply(summary) {
         setState(summary)
+      },
+      didTimeout(summary) {
+        setError({type: 'Timeout', body: summary})
+      },
+      didFail(error) {
+        setError({type: 'Fail', body: error})
+      },
+      didFailToSendPing(response) {
+        setError({type: 'FailToSendPing', body: response})
       }
     })
 
     return () => $network.stopPinging()
   }, [option])
 
-  return [state]
+  return [state, error]
 }
 
 export default usePing

@@ -25,11 +25,11 @@ const defaultState = {
   },
   magneticField: {
     field: {
-      x: null,
-      y: null,
-      z: null
+      x: 0,
+      y: 0,
+      z: 0
     },
-    accuracy: null
+    accuracy: -1
   },
   rotationRate: {
     x: null,
@@ -52,10 +52,7 @@ const useMotion = (initialState = defaultState) => {
   const [state, setState] = useState(initialState)
 
   useEffect(() => {
-    const handler = resp => {
-      setState(resp)
-    }
-
+    const handler = resp => setState(resp)
     $motion.startUpdates({
       interval: 1 / 30,
       handler
