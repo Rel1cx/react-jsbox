@@ -6,13 +6,13 @@ const useAuth = (
   localizedReason = `${$addin.current.name} apply for authentication`,
   handler = () => {}
 ) => {
-  const reply = $block('void, BOOL', success =>
-    $thread.main({
-      delay: 0,
-      handler: () => handler(success)
-    })
-  )
   useEffect(() => {
+    const reply = $block('void, BOOL', success =>
+      $thread.main({
+        delay: 0,
+        handler: () => handler(success)
+      })
+    )
     const LAContext = $objc('LAContext').invoke('alloc.init')
     LAContext.invoke(
       'evaluatePolicy:localizedReason:reply:',
@@ -21,7 +21,7 @@ const useAuth = (
       reply
     )
     return () => $objc_release(LAContext)
-  })
+  }, [])
 }
 
 export default useAuth
