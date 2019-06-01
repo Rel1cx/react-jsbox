@@ -1,6 +1,6 @@
 {
   "name": "react-jsbox",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "A Custom React Renderer for writing JSBox apps in React.",
   "keywords": [
     "React",
@@ -69,6 +69,7 @@
     "eslint-plugin-import": "^2.17.3",
     "eslint-plugin-jsbox": "^0.1.1",
     "eslint-plugin-react-hooks": "^1.6.0",
+    "react": "alpha",
     "rollup": "^1.13.0",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-cleanup": "^3.1.1",
