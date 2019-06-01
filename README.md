@@ -1,4 +1,4 @@
-# react-jsbox-renderer
+# react-jsbox
 
 A `Custom Renderer` for writing `JSBox` apps in `React`.
 

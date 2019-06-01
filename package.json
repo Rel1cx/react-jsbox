@@ -9,14 +9,14 @@
     "react-reconciler",
     "custom-renderer"
   ],
-  "main": "lib/react-jsbox.js",
+  "main": "index.js",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
     "prepublish": "rollup -c"
   },
   "author": "Eva1ent",
-  "repository": "github:Nicify/react-jsbox-renderer",
+  "repository": "github:Nicify/react-jsbox",
   "babel": {
     "presets": [
       [

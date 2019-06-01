@@ -13,7 +13,7 @@ export default [
     input: 'src/index.js',
     external: ['react'],
     treeshake: true,
-    output: [{file: pkg.main, format: 'cjs'}],
+    output: [{file: 'lib/react-jsbox.js', format: 'cjs'}],
     plugins: [
       progress(),
       eslint(),
