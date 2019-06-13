@@ -1,16 +1,5 @@
 const DEBUG = false
 
-// Fix JSBox console.log Circular Error
-if (/\[native code\]/.test(console.log.toString())) {
-  global.console.log = hookArgs(console.log, (...args) =>
-    args.map(arg =>
-      arg === undefined
-        ? 'undefined'
-        : JSON.parse(JSON.stringify(arg, getCircularReplacer()))
-    )
-  )
-}
-
 export const emptyFunction = () => {}
 export const emptyObject = {}
 
@@ -55,31 +44,6 @@ export function filterProps(oldProps = {}, newProps) {
     return rest
   }, newProps)
   return filteredProps
-}
-
-export function getCircularReplacer() {
-  const seen = new WeakSet()
-  return (key, value) => {
-    if (typeof value === 'object' && value !== null) {
-      if (seen.has(value)) {
-        return '[Circular]'
-      }
-      seen.add(value)
-    }
-    return value
-  }
-}
-
-export function hookArgs(originalFn, argsGetter) {
-  return function() {
-    let args = argsGetter.apply(this, arguments)
-    if (Array.isArray(args)) {
-      for (let i = 0; i < args.length; ++i) {
-        arguments[i] = args[i]
-      }
-    }
-    return originalFn.apply(this, arguments)
-  }
 }
 
 export function debug(target, name, descriptor) {

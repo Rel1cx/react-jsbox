@@ -1,10 +1,10 @@
 import View from './Components/View'
-import { filterProps, emptyObject, now, debug } from './helper'
+import {filterProps, now, debug} from './helper'
 
 const NO_CONTEXT = true
 
 export default class HostConfig {
-  getPublicInstance({ element }) {
+  getPublicInstance({element}) {
     return element
   }
 
@@ -97,9 +97,7 @@ export default class HostConfig {
   @debug
   insertInContainerBefore(parentInstance, child, beforeChild) {
     const parent = parentInstance.element || parentInstance
-    parent
-      .runtimeValue()
-      .$insertSubview_belowSubview(child.element, beforeChild.element)
+    parent.runtimeValue().$insertSubview_belowSubview(child.element, beforeChild.element)
   }
 
   @debug

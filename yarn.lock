@@ -308,13 +308,6 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
-"@babel/plugin-syntax-dynamic-import@^7.2.0":
-  version "7.2.0"
-  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-dynamic-import/-/plugin-syntax-dynamic-import-7.2.0.tgz#69c159ffaf4998122161ad8ebc5e6d1f55df8612"
-  integrity sha512-mVxuJ0YroI/h/tbFTPGZR8cv6ai+STMKNBq0f8hFxsxWjl94qqhsb+wXbpNMDPU3cfR1TIsVFzU3nXyZMqyK4w==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.0.0"
-
 "@babel/plugin-syntax-json-strings@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-json-strings/-/plugin-syntax-json-strings-7.2.0.tgz#72bd13f6ffe1d25938129d2a186b11fd62951470"
@@ -691,10 +684,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-11.13.8.tgz#e5d71173c95533be9842b2c798978f095f912aab"
   integrity sha512-szA3x/3miL90ZJxUCzx9haNbK5/zmPieGraZEe4WI+3srN0eGLiT22NXeMHmyhNEopn+IrxqMc7wdVwvPl8meg==
 
-"@types/node@^12.0.3":
-  version "12.0.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.4.tgz#46832183115c904410c275e34cf9403992999c32"
-  integrity sha512-j8YL2C0fXq7IONwl/Ud5Kt0PeXw22zGERt+HSSnwbKOJVsAGkEz3sFCYwaF9IOuoG1HOtE0vKCj6sXF7Q0+Vaw==
+"@types/node@^12.0.8":
+  version "12.0.8"
+  resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-12.0.8.tgz#551466be11b2adc3f3d47156758f610bd9f6b1d8"
+  integrity sha1-VRRmvhGyrcPz1HFWdY9hC9n2sdg=
 
 "@types/resolve@0.0.8":
   version "0.0.8"
@@ -2619,10 +2612,10 @@ rollup-plugin-modify@^3.0.0:
     magic-string "0.25.2"
     ospec "3.1.0"
 
-rollup-plugin-node-resolve@^5.0.1:
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-node-resolve/-/rollup-plugin-node-resolve-5.0.1.tgz#4619eafdf2ecb4e8ed24177ba47d7f11f027d38b"
-  integrity sha512-9s3dTu44SKQZM/Pwll42GpqXgT+WdvO0Ga01lF8cwZqJGqRUATtD+GrP3uIzZdpnbPonEJbVasfFt80VGPQqKw==
+rollup-plugin-node-resolve@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.npm.taobao.org/rollup-plugin-node-resolve/download/rollup-plugin-node-resolve-5.0.2.tgz#6475dc689934a2f85bb5c5867d03d8bd1bf859c1"
+  integrity sha1-ZHXcaJk0ovhbtcWGfQPYvRv4WcE=
   dependencies:
     "@types/resolve" "0.0.8"
     builtin-modules "^3.1.0"
@@ -2678,13 +2671,13 @@ rollup-pluginutils@^2.7.1, rollup-pluginutils@^2.8.0:
   dependencies:
     estree-walker "^0.6.1"
 
-rollup@^1.13.0:
-  version "1.13.0"
-  resolved "https://registry.yarnpkg.com/rollup/-/rollup-1.13.0.tgz#8313fc6d9762e28301b4b89cc0a56233659a67b6"
-  integrity sha512-pW4G4cQmtEmbg4/CoFYc2AYeKiGpMAVak7kFpch1UJnYkXMn/34L8cD0kxkmjJNpJ/NagOHVdCwdkbtCEuDEww==
+rollup@^1.15.2:
+  version "1.15.2"
+  resolved "https://registry.npm.taobao.org/rollup/download/rollup-1.15.2.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Frollup%2Fdownload%2Frollup-1.15.2.tgz#676feb0e73c8f99f75e0078b331a576c56354df6"
+  integrity sha1-Z2/rDnPI+Z914AeLMxpXbFY1TfY=
   dependencies:
     "@types/estree" "0.0.39"
-    "@types/node" "^12.0.3"
+    "@types/node" "^12.0.8"
     acorn "^6.1.1"
 
 run-async@^2.2.0:
