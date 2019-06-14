@@ -1,6 +1,7 @@
 import babel from 'rollup-plugin-babel'
 import cleanup from 'rollup-plugin-cleanup'
 import commonjs from 'rollup-plugin-commonjs'
+import path from 'path'
 import progress from 'rollup-plugin-progress'
 import replace from 'rollup-plugin-modify'
 import resolve from 'rollup-plugin-node-resolve'
@@ -8,12 +9,23 @@ import {eslint} from 'rollup-plugin-eslint'
 import {terser} from 'rollup-plugin-terser'
 import pkg from './package.json'
 
+const SOURCE_DIR = path.resolve(__dirname, 'src')
+const DIST_DIR = path.resolve(__dirname, 'dist')
+const input = `${SOURCE_DIR}/index.js`
+
+const getBabelOptions = ({useESModules}) => ({
+  exclude: '**/node_modules/**',
+  runtimeHelpers: true,
+  configFile: path.join(__dirname, './babel.config.js'),
+  plugins: ['babel-plugin-annotate-pure-calls', ['@babel/plugin-transform-runtime', {useESModules}]]
+})
+
 export default [
   {
-    input: 'src/index.js',
-    external: ['react'],
+    input,
     treeshake: true,
-    output: [{file: 'lib/react-jsbox.js', format: 'cjs'}],
+    external: ['react'],
+    output: {file: `${DIST_DIR}/${pkg.name}.cjs.js`, format: 'cjs'},
     plugins: [
       progress(),
       eslint(),
@@ -21,13 +33,7 @@ export default [
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
       resolve(),
-      babel({
-        extensions: ['.js'],
-        runtimeHelpers: true,
-        exclude: ['node_modules/@babel/**', /\/core-js\//],
-        presets: pkg.babel.presets,
-        plugins: pkg.babel.plugins
-      }),
+      babel(getBabelOptions({useESModules: false})),
       commonjs(),
       terser(),
       cleanup()

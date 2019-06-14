@@ -29,17 +29,8 @@ export const is = {
 }
 
 export function filterProps(oldProps = {}, newProps) {
-  const sameProps = Object.keys(newProps).filter(key =>
-    is.equ(newProps[key], oldProps[key])
-  )
-  const filteredProps = [
-    ...sameProps,
-    'layout',
-    'events',
-    'children',
-    'key',
-    'ref'
-  ].reduce((acc, prop) => {
+  const sameProps = Object.keys(newProps).filter(key => is.equ(newProps[key], oldProps[key]))
+  const filteredProps = [...sameProps, 'layout', 'events', 'children', 'key', 'ref'].reduce((acc, prop) => {
     let {[prop]: _, ...rest} = acc
     return rest
   }, newProps)

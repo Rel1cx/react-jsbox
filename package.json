@@ -1,6 +1,6 @@
 {
   "name": "react-jsbox",
-  "version": "0.0.30",
+  "version": "0.0.31",
   "description": "A Custom React Renderer for writing JSBox apps in React.",
   "keywords": [
     "React",
@@ -9,7 +9,7 @@
     "react-reconciler",
     "custom-renderer"
   ],
-  "main": "index.js",
+  "main": "dist/react-jsbox.cjs.js",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
@@ -17,39 +17,6 @@
   },
   "author": "Eva1ent",
   "repository": "github:Nicify/react-jsbox",
-  "babel": {
-    "presets": [
-      [
-        "@babel/preset-env",
-        {
-          "targets": "iOS 11"
-        }
-      ],
-      [
-        "minify",
-        {
-          "builtIns": false,
-          "evaluate": false,
-          "mangle": false,
-          "keepFnName": true
-        }
-      ]
-    ],
-    "plugins": [
-      [
-        "@babel/plugin-proposal-decorators",
-        {
-          "legacy": true
-        }
-      ],
-      [
-        "@babel/plugin-proposal-class-properties",
-        {
-          "loose": true
-        }
-      ]
-    ]
-  },
   "peerDependencies": {
     "react": "alpha"
   },
@@ -60,8 +27,12 @@
     "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.4.5",
     "babel-eslint": "^10.0.1",
+    "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-preset-minify": "^0.5.0",
     "eslint": "^5.16.0",
     "eslint-plugin-babel": "^5.3.0",
@@ -69,7 +40,7 @@
     "eslint-plugin-jsbox": "^0.1.1",
     "eslint-plugin-react-hooks": "^1.6.0",
     "react": "alpha",
-    "rollup": "^1.15.2",
+    "rollup": "^1.15.4",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.0.0",
