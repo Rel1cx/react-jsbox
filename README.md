@@ -1,6 +1,9 @@
-# react-jsbox
+<h1 align="center">Welcome to react-jsbox 👋</h1>
+<p>
+  <img src="https://img.shields.io/badge/version-0.0.32-blue.svg?cacheSeconds=2592000" />
+</p>
 
-A `Custom Renderer` for writing `JSBox` apps in `React`.
+> A Custom React Renderer for writing JSBox apps in React.
 
 This package is experimental **Use it at your own risk.**
 
@@ -14,7 +17,7 @@ Example App: <https://github.com/Nicify/react-jsbox-example>
 
 ## Examples
 
-### Classes
+### Class
 
 ```javascript
 import React from 'react'
@@ -94,7 +97,7 @@ class App extends React.PureComponent {
   }
 }
 
-let styles = {
+const styles = {
   container: $rect(0, 0, width, height - 40),
   text: $rect(0, 64, width, 30),
   list: $rect(0, 200, width, height - 280)
@@ -183,7 +186,7 @@ class App extends React.PureComponent {
   }
 }
 
-let styles = {
+const styles = {
   container: $rect(0, 0, width, height - 40),
   text: $rect(0, 64, width, 30),
   textInput: $rect(10, 160, width - 20, 48)
@@ -193,7 +196,7 @@ let styles = {
 ReactJSBox.render(<App />, $('root'))
 ```
 
-### React Hooks
+### Hooks
 
 #### useReducer
 
@@ -277,7 +280,7 @@ const App = () => {
   )
 }
 
-let styles = {
+const styles = {
   container: $rect(0, 0, width, height - 40),
   text: $rect(0, 64, width, 30),
   list: $rect(0, 200, width, height - 280)
@@ -287,7 +290,7 @@ let styles = {
 ReactJSBox.render(<App />, $('root'))
 ```
 
-#### Use Effect
+#### UseEffect
 
 In **useMotion.js**
 
@@ -388,7 +391,7 @@ const App = () => {
   )
 }
 
-let styles = {
+const styles = {
   container: $rect(0, 0, width, height - 40)
 }
 
@@ -398,3 +401,13 @@ $ui.render(rootContainer)
 // Create React elements and render them:
 ReactJSBox.render(<App />, $('root'))
 ```
+
+## Author
+
+👤 **Eva1ent**
+
+- Github: [@Nicify](https://github.com/Nicify)
+
+## Show your support
+
+Give a ⭐️ if this project helped you !
