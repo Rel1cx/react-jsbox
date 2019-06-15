@@ -292,79 +292,26 @@ ReactJSBox.render(<App />, $('root'))
 
 #### UseEffect
 
-In **useMotion.js**
+In **useCache.js**
 
 ```javascript
 import {useEffect, useState} from 'react'
 
-const defaultState = {
-  attitude: {
-    yaw: null,
-    quaternion: {
-      y: null,
-      w: null,
-      z: null,
-      x: null
-    },
-    rotationMatrix: {
-      m31: null,
-      m21: null,
-      m11: null,
-      m33: null,
-      m23: null,
-      m13: null,
-      m32: null,
-      m22: null,
-      m12: null
-    },
-    pitch: null,
-    roll: null
-  },
-  magneticField: {
-    field: {
-      x: null,
-      y: null,
-      z: null
-    },
-    accuracy: null
-  },
-  rotationRate: {
-    x: null,
-    y: null,
-    z: null
-  },
-  acceleration: {
-    x: null,
-    y: null,
-    z: null
-  },
-  gravity: {
-    x: null,
-    y: null,
-    z: null
-  }
-}
-
-const useMotion = (initialState = defaultState) => {
-  const [state, setState] = useState(initialState)
-
-  useEffect(() => {
-    const handler = resp => {
-      setState(resp)
+const useCache = (key, initialValue) => {
+  const [state, setState] = useState(() => {
+    const cacheValue = $cache.get(key)
+    if (cacheValue === undefined) {
+      $cache.set(key, initialValue)
+      return initialValue
     }
+    return cacheValue
+  })
+  useEffect(() => $cache.set(key, state))
 
-    $motion.startUpdates({
-      interval: 1 / 30,
-      handler
-    })
-
-    return () => $motion.stopUpdates()
-  }, [])
-
-  return [state]
+  return [state, setState]
 }
 
-export default useMotion
+export default useCache
 ```
 
 In **app.js**
@@ -372,27 +319,55 @@ In **app.js**
 ```javascript
 import React from 'react'
 import ReactJSBox from 'react-jsbox'
+import useCache from './useCache'
 import rootContainer from './Containers/root'
-import useMotion from './hooks/useMotion'
 const {width, height} = $device.info.screen
 
 const App = () => {
-  const [state] = useMotion()
+  const [count, setCount] = useCache('count', 0)
+  const listTemplate = {
+    views: [
+      {
+        type: 'label',
+        props: {
+          bgcolor: $color('#474b51'),
+          textColor: $color('#abb2bf'),
+          align: $align.center,
+          font: $font('iosevka', 24)
+        },
+        layout: $layout.fill
+      }
+    ]
+  }
 
   return (
     <view frame={styles.container}>
-      <text
-        frame={styles.container}
-        font={$font(12)}
-        text={JSON.stringify(state, null, 2)}
+      <label
+        frame={styles.text}
+        align={$align.center}
+        font={$font('ArialRoundedMTBold', 26)}
+        text={String(count)}
         autoFontSize={true}
+      />
+      <list
+        frame={styles.list}
+        scrollEnabled={false}
+        radius={5}
+        bgcolor={$color('#ededed')}
+        data={['INCREASE', 'DECREASE', 'RESET']}
+        template={listTemplate}
+        events={{
+          didSelect: (sender, {row}, data) => setCount(count => count + [1, -1, -count][row])
+        }}
       />
     </view>
   )
 }
 
 const styles = {
-  container: $rect(0, 0, width, height - 40)
+  container: $rect(0, 0, width, height - 40),
+  text: $rect(0, 64, width, 30),
+  list: $rect(0, (height - 40) * 0.3, width, 132)
 }
 
 // Create a root Container:
