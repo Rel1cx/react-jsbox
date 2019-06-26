@@ -1,10 +1,10 @@
-import View from './Components/View'
-import {filterProps, now, debug} from './helper'
+import View from './Components/view'
+import { filterProps, now, debug } from './helper'
 
 const NO_CONTEXT = true
 
 export default class HostConfig {
-  getPublicInstance({element}) {
+  getPublicInstance({ element }) {
     return element
   }
 

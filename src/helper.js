@@ -1,12 +1,15 @@
 const DEBUG = false
 
-export const emptyFunction = () => {}
+export const emptyFunction = () => { }
+
 export const emptyObject = {}
+
+export const hasOwnProperty = Object.prototype.hasOwnProperty
 
 // HighRes but slower then Date.now during invoke
 // const now = () => $objc('NSDate').invoke('date').invoke('timeIntervalSince1970') * 1000
 
-export const {now} = Date
+export const { now } = Date
 
 // Based on react-three-fiber ((c) 2019 Paul Henschel, MIT).
 // https://github.com/drcmda/react-three-fiber/blob/master/src/reconciler.tsx#L13
@@ -31,7 +34,7 @@ export const is = {
 export function filterProps(oldProps = {}, newProps) {
   const sameProps = Object.keys(newProps).filter(key => is.equ(newProps[key], oldProps[key]))
   const filteredProps = [...sameProps, 'layout', 'events', 'children', 'key', 'ref'].reduce((acc, prop) => {
-    let {[prop]: _, ...rest} = acc
+    let { [prop]: _, ...rest } = acc
     return rest
   }, newProps)
   return filteredProps
