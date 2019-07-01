@@ -25,24 +25,6 @@ export default [
     input,
     treeshake: true,
     external: ['react'],
-    output: { file: `${DIST_DIR}/${pkg.name}.esm.js`, format: 'esm' },
-    plugins: [
-      progress(),
-      eslint(),
-      replace({
-        'process.env.NODE_ENV': JSON.stringify('production')
-      }),
-      resolve(),
-      babel(getBabelOptions({ useESModules: true })),
-      commonjs(),
-      terser(),
-      cleanup()
-    ]
-  },
-  {
-    input,
-    treeshake: true,
-    external: ['react'],
     output: { file: `${DIST_DIR}/${pkg.name}.cjs.js`, format: 'cjs' },
     plugins: [
       progress(),
