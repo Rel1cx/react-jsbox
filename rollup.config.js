@@ -9,11 +9,6 @@ import { terser } from 'rollup-plugin-terser'
 import path from 'path'
 import pkg from './package.json'
 
-const globals = {
-  react: 'React',
-  'react-jsbox': 'ReactJSBox',
-}
-
 const SOURCE_DIR = path.resolve(__dirname, 'src')
 const DIST_DIR = path.resolve(__dirname, 'dist')
 const input = `${SOURCE_DIR}/index.js`
@@ -30,16 +25,18 @@ export default [
     input,
     treeshake: true,
     external: ['react'],
-    output: { file: `${DIST_DIR}/${pkg.name}.umd.js`, name: "ReactJSBox", globals, format: 'umd' },
+    output: { file: `${DIST_DIR}/${pkg.name}.esm.js`, format: 'esm' },
     plugins: [
       progress(),
       eslint(),
       replace({
-        'process.env.NODE_ENV': JSON.stringify('development')
+        'process.env.NODE_ENV': JSON.stringify('production')
       }),
       resolve(),
-      babel(getBabelOptions({ useESModules: false })),
-      commonjs()
+      babel(getBabelOptions({ useESModules: true })),
+      commonjs(),
+      terser(),
+      cleanup()
     ]
   },
   {

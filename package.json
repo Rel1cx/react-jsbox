@@ -10,7 +10,7 @@
     "custom-renderer"
   ],
   "main": "dist/react-jsbox.cjs.js",
-  "module": "dist/react-jsbox.umd.js",
+  "module": "dist/react-jsbox.esm.js",
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
