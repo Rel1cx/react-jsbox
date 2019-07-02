@@ -24,7 +24,6 @@ export default class HostConfig {
     // noop
   }
 
-  @debug
   createInstance(type, props, internalInstanceHandle) {
     return new View(type, props)
   }
@@ -38,7 +37,6 @@ export default class HostConfig {
     return false
   }
 
-  @debug
   prepareUpdate(instance, type, oldProps, newProps) {
     return filterProps(oldProps, newProps) || null
   }
@@ -67,7 +65,6 @@ export default class HostConfig {
 
   supportsHydration = false
 
-  @debug
   appendChild(parentInstance, child) {
     parentInstance.appendChild(child)
   }
@@ -82,7 +79,6 @@ export default class HostConfig {
     // noop
   }
 
-  @debug
   commitUpdate(instance, updatePayload, type, oldProps, newProps) {
     if (updatePayload) {
       instance.update(updatePayload)
@@ -100,7 +96,6 @@ export default class HostConfig {
     parent.runtimeValue().$insertSubview_belowSubview(child.element, beforeChild.element)
   }
 
-  @debug
   removeChild(parentInstance, child) {
     parentInstance.removeChild(child)
   }
