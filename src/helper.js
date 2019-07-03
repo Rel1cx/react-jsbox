@@ -1,4 +1,4 @@
-const DEBUG = process ? process.env.NODE_ENV === "development" : false
+const DEBUG = false
 
 export const emptyFunction = () => { }
 
