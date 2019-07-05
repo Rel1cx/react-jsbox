@@ -24,13 +24,13 @@
     "react-reconciler": "alpha"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/core": "^7.5.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.0",
     "@babel/plugin-proposal-decorators": "^7.4.4",
-    "@babel/plugin-transform-runtime": "^7.4.4",
-    "@babel/preset-env": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.5.0",
+    "@babel/preset-env": "^7.5.0",
     "@babel/preset-react": "^7.0.0",
-    "@babel/runtime": "^7.4.5",
+    "@babel/runtime": "^7.5.0",
     "babel-eslint": "^10.0.2",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-preset-minify": "^0.5.0",
@@ -40,16 +40,15 @@
     "eslint-plugin-jsbox": "^0.1.1",
     "eslint-plugin-react-hooks": "^1.6.1",
     "react": "alpha",
-    "rollup": "^1.16.4",
+    "rollup": "^1.16.6",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.0.1",
-    "rollup-plugin-eslint": "^7.0.0",
     "rollup-plugin-modify": "^3.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-progress": "^1.1.1",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-terser": "^5.0.0"
+    "rollup-plugin-terser": "^5.1.0"
   },
   "license": "MIT"
 }
