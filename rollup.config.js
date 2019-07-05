@@ -4,7 +4,6 @@ import commonjs from 'rollup-plugin-commonjs'
 import progress from 'rollup-plugin-progress'
 import replace from 'rollup-plugin-modify'
 import resolve from 'rollup-plugin-node-resolve'
-import { eslint } from 'rollup-plugin-eslint'
 import { terser } from 'rollup-plugin-terser'
 import path from 'path'
 import pkg from './package.json'
@@ -28,7 +27,6 @@ export default [
     output: { file: `${DIST_DIR}/${pkg.name}.cjs.js`, format: 'cjs' },
     plugins: [
       progress(),
-      eslint(),
       replace({
         'process.env.NODE_ENV': JSON.stringify('production')
       }),
