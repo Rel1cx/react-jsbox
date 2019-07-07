@@ -24,7 +24,7 @@ export default [
     input,
     treeshake: true,
     external: ['react'],
-    output: { file: `${DIST_DIR}/${pkg.name}.cjs.js`, format: 'cjs' },
+    output: { file: `${DIST_DIR}/${pkg.name}.js`, format: 'cjs' },
     plugins: [
       progress(),
       replace({
