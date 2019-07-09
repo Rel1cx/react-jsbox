@@ -4,6 +4,20 @@ import { filterProps, now, debug } from './helper'
 const NO_CONTEXT = true
 
 export default class HostConfig {
+  constructor() {
+    this.now = now
+
+    this.setTimeout = setTimeout
+
+    this.clearTimeout = clearTimeout
+
+    this.supportsMutation = true
+
+    this.supportsPersistence = false
+
+    this.supportsHydration = false
+  }
+
   getPublicInstance({ element }) {
     return element
   }
@@ -52,18 +66,6 @@ export default class HostConfig {
   createTextInstance() {
     return null
   }
-
-  setTimeout = setTimeout
-
-  clearTimeout = clearTimeout
-
-  now = now
-
-  supportsMutation = true
-
-  supportsPersistence = false
-
-  supportsHydration = false
 
   appendChild(parentInstance, child) {
     parentInstance.appendChild(child)
@@ -119,15 +121,13 @@ export default class HostConfig {
     instance.element.hidden = false
   }
 
-  @debug
-  hideTextInstance(instance) {
-    instance.element.hidden = true
-  }
+  // hideTextInstance(instance) {
+  //   instance.element.hidden = true
+  // }
 
-  @debug
-  unhideTextInstance(instance) {
-    instance.element.hidden = false
-  }
+  // unhideTextInstance(instance) {
+  //   instance.element.hidden = false
+  // }
 
   // cloneInstance(instance, updatePayload, type, oldProps, newProps) {}
 
