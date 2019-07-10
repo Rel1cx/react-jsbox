@@ -1,21 +1,21 @@
 import View from './Components/view'
-import { filterProps, now, debug } from './helper'
+import { filterProps, debug } from './helper'
 
 const NO_CONTEXT = true
 
 export default class HostConfig {
-  constructor() {
+  constructor(now, setTimeout, clearTimeout, supportsMutation, supportsPersistence, supportsHydration) {
     this.now = now
 
     this.setTimeout = setTimeout
 
     this.clearTimeout = clearTimeout
 
-    this.supportsMutation = true
+    this.supportsMutation = supportsMutation
 
-    this.supportsPersistence = false
+    this.supportsPersistence = supportsPersistence
 
-    this.supportsHydration = false
+    this.supportsHydration = supportsHydration
   }
 
   getPublicInstance({ element }) {
