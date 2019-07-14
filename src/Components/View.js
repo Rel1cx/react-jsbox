@@ -16,7 +16,7 @@ export default class View {
   }
 
   appendChild(child) {
-    this.element.runtimeValue().$addSubview(child.element)
+    this.element.ocValue().$addSubview(child.element)
   }
 
   removeChild(child) {
@@ -25,7 +25,7 @@ export default class View {
 
   insertBefore(child, beforeChild) {
     this.element
-      .runtimeValue()
+      .ocValue()
       .$insertSubview_belowSubview(child.element, beforeChild.element)
   }
 

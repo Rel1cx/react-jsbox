@@ -1,22 +1,20 @@
 import View from './Components/view'
-import { filterProps, debug } from './helper'
+import { now, filterProps, debug } from './helper'
 
 const NO_CONTEXT = true
 
 export default class HostConfig {
-  constructor(now, setTimeout, clearTimeout, supportsMutation, supportsPersistence, supportsHydration) {
-    this.now = now
+  now = now
 
-    this.setTimeout = setTimeout
+  setTimeout = setTimeout
 
-    this.clearTimeout = clearTimeout
+  clearTimeout = clearTimeout
 
-    this.supportsMutation = supportsMutation
+  supportsMutation = true
 
-    this.supportsPersistence = supportsPersistence
+  supportsPersistence = false
 
-    this.supportsHydration = supportsHydration
-  }
+  supportsHydration = false
 
   getPublicInstance({ element }) {
     return element
@@ -74,7 +72,7 @@ export default class HostConfig {
   @debug
   appendChildToContainer(parentInstance, child) {
     const parent = parentInstance.element || parentInstance
-    parent.runtimeValue().$addSubview(child.element)
+    parent.ocValue().$addSubview(child.element)
   }
 
   commitMount(instance, updatePayload, type, oldProps, newProps) {
@@ -95,7 +93,7 @@ export default class HostConfig {
   @debug
   insertInContainerBefore(parentInstance, child, beforeChild) {
     const parent = parentInstance.element || parentInstance
-    parent.runtimeValue().$insertSubview_belowSubview(child.element, beforeChild.element)
+    parent.ocValue().$insertSubview_belowSubview(child.element, beforeChild.element)
   }
 
   removeChild(parentInstance, child) {

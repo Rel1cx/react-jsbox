@@ -1,8 +1,7 @@
 import Reconciler from 'react-reconciler'
 import HostConfig from './hostconfig'
-import { now } from './helper'
 
-const JSBoxRenderer = Reconciler(new HostConfig(now, setTimeout, setInterval, true, false, false))
+const JSBoxRenderer = Reconciler(new HostConfig())
 
 export default function render(element, container, callback) {
   let root = container._reactRootContainer
