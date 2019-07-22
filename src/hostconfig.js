@@ -40,7 +40,6 @@ export default class HostConfig {
     return new View(type, props)
   }
 
-  @debug
   appendInitialChild(parentInstance, child) {
     parentInstance.appendChild(child)
   }

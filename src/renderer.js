@@ -1,7 +1,7 @@
-import Reconciler from 'react-reconciler'
+import ReactFiberReconciler from 'react-reconciler'
 import HostConfig from './hostconfig'
 
-const JSBoxRenderer = Reconciler(new HostConfig())
+const JSBoxRenderer = ReactFiberReconciler(new HostConfig())
 
 export default function render(element, container, callback) {
   let root = container._reactRootContainer
