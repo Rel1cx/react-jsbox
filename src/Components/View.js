@@ -4,7 +4,7 @@ export default class View {
     this._element = $ui.create({
       type,
       props,
-      layout, // layouts does not work via $ui.create
+      layout,
       events
     })
   }

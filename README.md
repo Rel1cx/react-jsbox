@@ -3,7 +3,7 @@
   <img src="https://img.shields.io/badge/version-0.0.32-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> A Custom React Renderer for writing JSBox apps in React.
+> A Custom React renderer for writing JSBox apps in React.
 
 This package is experimental **Use it at your own risk.**
 

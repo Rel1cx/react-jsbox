@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 
 const initialState = {
   sequenceNumber: 0,
@@ -30,13 +30,13 @@ const usePing = (option = defaultOption) => {
         setState(summary)
       },
       didTimeout(summary) {
-        setError({type: 'Timeout', body: summary})
+        setError({ type: 'Timeout', data: summary })
       },
       didFail(error) {
-        setError({type: 'Fail', body: error})
+        setError({ type: 'Fail', data: error })
       },
       didFailToSendPing(response) {
-        setError({type: 'FailToSendPing', body: response})
+        setError({ type: 'FailToSendPing', data: response })
       }
     })
 

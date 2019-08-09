@@ -49,7 +49,7 @@ export default class HostConfig {
   }
 
   prepareUpdate(instance, type, oldProps, newProps) {
-    return filterProps(oldProps, newProps) || null
+    return filterProps(oldProps, newProps)
   }
 
   shouldSetTextContent() {
