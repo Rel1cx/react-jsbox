@@ -112,7 +112,7 @@ ReactJSBox.render(<App />, $('root'))
 ```javascript
 import * as React from 'react'
 import * as ReactJSBox from 'react-jsbox'
-const {width, height} = $device.info.screen
+const { width, height } = $device.info.screen
 
 // Create a root Container:
 $ui.render({
@@ -140,10 +140,15 @@ class App extends React.PureComponent {
     this.state = {
       text: ''
     }
+    this._input = React.createRef()
   }
 
   handleTextChange(sender) {
-    this.setState({text: sender.text})
+    this.setState({ text: sender.text })
+  }
+
+  componentDidMount() {
+    this._input.current.focus()
   }
 
   render() {
@@ -153,7 +158,7 @@ class App extends React.PureComponent {
         frame={styles.container}
         bgcolor={$color('#2ac')}
         events={{
-          tapped: () => this._input && this._input.blur()
+          tapped: () => this._input.current.blur()
         }}
       >
         <label
@@ -168,11 +173,7 @@ class App extends React.PureComponent {
         <input
           id={'textInput'}
           // use ref to access JSBox view instance
-          ref={input => {
-            if (!input) return
-            this._input = input
-            this._input.focus()
-          }}
+          ref={this._input}
           frame={styles.textInput}
           font={$font('ArialRoundedMTBold', 24)}
           tintColor={$color('orange')}
