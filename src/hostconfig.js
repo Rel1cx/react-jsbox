@@ -57,7 +57,7 @@ export default class HostConfig {
   }
 
   shouldDeprioritizeSubtree(type, props) {
-    return false
+    return !!props.hidden
   }
 
   createTextInstance() {
@@ -118,39 +118,4 @@ export default class HostConfig {
     instance.element.hidden = false
   }
 
-  // hideTextInstance(instance) {
-  //   instance.element.hidden = true
-  // }
-
-  // unhideTextInstance(instance) {
-  //   instance.element.hidden = false
-  // }
-
-  // cloneInstance(instance, updatePayload, type, oldProps, newProps) {}
-
-  // createContainerChildSet() {}
-
-  // appendChildToContainerChildSet() {}
-
-  // finalizeContainerChildren() {}
-
-  // replaceContainerChildren() {}
-
-  // cloneHiddenInstance() {}
-
-  // cloneUnhiddenInstance() {}
-
-  // createHiddenTextInstance() {}
-
-  // canHydrateInstance() {}
-
-  // canHydrateTextInstance() {}
-
-  // getNextHydratableSibling() {}
-
-  // getFirstHydratableChild() {}
-
-  // hydrateInstance() {}
-
-  // hydrateTextInstance() {}
 }
