@@ -1,4 +1,4 @@
-const DEBUG = false
+const DEBUG = !!global.__REACT_JSBOX_DEBUG__
 
 export const emptyFunction = () => { }
 

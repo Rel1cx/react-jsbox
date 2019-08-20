@@ -108,12 +108,10 @@ export default class HostConfig {
     // noop
   }
 
-  @debug
   hideInstance(instance) {
     instance.element.hidden = true
   }
 
-  @debug
   unhideInstance(instance) {
     instance.element.hidden = false
   }
