@@ -1,5 +1,5 @@
 import View from './Components/view'
-import { now, filterProps, debug } from './helper'
+import { now, filterProps } from './helper'
 
 const NO_CONTEXT = true
 
@@ -41,7 +41,14 @@ export default class HostConfig {
   }
 
   appendInitialChild(parentInstance, child) {
-    parentInstance.appendChild(child)
+    switch (parentInstance.element.ocValue().__clsName) {
+      case "BBStackView":
+        const stack = parentInstance.element.stack
+        stack.insert(child.element, stack.views.length)
+        break
+      default:
+        parentInstance.appendChild(child)
+    }
   }
 
   finalizeInitialChildren(parentInstance, type, props) {
@@ -68,10 +75,15 @@ export default class HostConfig {
     parentInstance.appendChild(child)
   }
 
-  @debug
   appendChildToContainer(parentInstance, child) {
     const parent = parentInstance.element || parentInstance
-    parent.ocValue().$addSubview(child.element)
+    switch (parent.ocValue().__clsName) {
+      case "BBStackView":
+        parent.stack.insert(child.element, parent.stack.views.length)
+        break
+      default:
+        parent.ocValue().$addSubview(child.element)
+    }
   }
 
   commitMount(instance, updatePayload, type, oldProps, newProps) {
@@ -84,12 +96,10 @@ export default class HostConfig {
     }
   }
 
-  @debug
   insertBefore(parentInstance, child, beforeChild) {
     parentInstance.insertBefore(child, beforeChild)
   }
 
-  @debug
   insertInContainerBefore(parentInstance, child, beforeChild) {
     const parent = parentInstance.element || parentInstance
     parent.ocValue().$insertSubview_belowSubview(child.element, beforeChild.element)
@@ -99,9 +109,15 @@ export default class HostConfig {
     parentInstance.removeChild(child)
   }
 
-  @debug
   removeChildFromContainer(parentInstance, child) {
-    child.element.remove()
+    const parent = parentInstance.element || parentInstance
+    switch (parent.ocValue().__clsName) {
+      case "BBStackView":
+        parent.stack.remove(child.element)
+        break
+      default:
+        child.element.remove()
+    }
   }
 
   resetTextContent() {
