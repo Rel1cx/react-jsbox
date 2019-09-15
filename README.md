@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to react-jsbox 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-0.0.32-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-0.0.56-blue.svg?cacheSeconds=2592000" />
 </p>
 
 > A Custom React renderer for writing JSBox apps in React.
@@ -19,7 +19,7 @@ Example App: <https://github.com/Nicify/react-jsbox-example>
 
 ### Class
 
-```javascript
+```jsx
 import React from 'react'
 import ReactJSBox from 'react-jsbox'
 const {width, height} = $device.info.screen
@@ -109,7 +109,7 @@ ReactJSBox.render(<App />, $('root'))
 
 #### Use ref to access JSBox view instance
 
-```javascript
+```jsx
 import * as React from 'react'
 import * as ReactJSBox from 'react-jsbox'
 const { width, height } = $device.info.screen
@@ -141,6 +141,7 @@ class App extends React.PureComponent {
       text: ''
     }
     this._input = React.createRef()
+    this._handleTextChange = this.handleTextChange.bind(this)
   }
 
   handleTextChange(sender) {
@@ -179,7 +180,7 @@ class App extends React.PureComponent {
           tintColor={$color('orange')}
           placeholder={'Type here...'}
           events={{
-            changed: this.handleTextChange.bind(this)
+            changed: this._handleTextChange
           }}
         />
       </view>
@@ -201,7 +202,7 @@ ReactJSBox.render(<App />, $('root'))
 
 #### useReducer
 
-```javascript
+```jsx
 import React from 'react'
 import ReactJSBox from 'react-jsbox'
 const {width, height} = $device.info.screen
@@ -291,11 +292,11 @@ const styles = {
 ReactJSBox.render(<App />, $('root'))
 ```
 
-#### UseEffect
+#### useEffect
 
 In **useCache.js**
 
-```javascript
+```jsx
 import {useEffect, useState} from 'react'
 
 const useCache = (key, initialValue) => {
@@ -317,7 +318,7 @@ export default useCache
 
 In **app.js**
 
-```javascript
+```jsx
 import React from 'react'
 import ReactJSBox from 'react-jsbox'
 import useCache from './useCache'
@@ -376,6 +377,87 @@ $ui.render(rootContainer)
 
 // Create React elements and render them:
 ReactJSBox.render(<App />, $('root'))
+```
+
+#### JsxLiteral
+
+```javascript
+const htm = require("htm")
+const { createElement, useState } = require("react")
+const ReactJSBox = require("react-jsbox")
+const jsx = htm.bind(createElement)
+const { width, height } = $device.info.screen
+
+const listTemplate = {
+    views: [
+        {
+            type: "label",
+            props: {
+                bgcolor: $color("#474b51"),
+                textColor: $color("#abb2bf"),
+                align: $align.center,
+                font: $font("iosevka", 24)
+            },
+            layout: $layout.fill
+        }
+    ]
+}
+
+$ui.render({
+    props: {
+        title: "JsxLiteralExample"
+    },
+    views: [
+        {
+            type: "view",
+            props: {
+                id: "root"
+            },
+            layout: $layout.fill
+        }
+    ]
+})
+
+function JsxLiteralExample() {
+    const [count, setCount] = useState(0);
+    return jsx`<view frame=${styles.container}>
+      <label
+        frame=${styles.text}
+        align=${$align.center}
+        font=${$font(26)}
+        text=${String(count)}
+        autoFontSize=${true}
+      />
+      <progress
+      frame=${$rect(15, 150, width - 30, 30)}
+      value=${0.5 + count * 0.01}
+      }}
+      />
+      <list
+        frame=${styles.list}
+        scrollEnabled=${false}
+        radius=${5}
+        bgcolor=${$color("#ededed")}
+        data=${["INCREASE", "DECREASE", "RESET"]}
+        template=${listTemplate}
+        events=${{
+            didSelect: (sender, { row }, data) => {
+                setCount(count => count + [1, -1, -count][row])
+                $audio.play({ id: 1104 })
+                console.log(count)
+            }
+        }}
+      />
+    </view>`
+}
+
+const styles = {
+    container: $rect(0, 0, width, height),
+    text: $rect(0, 64, width, 30),
+    list: $rect(0, width * 0.5, width, 132)
+}
+
+ReactJSBox.render(jsx`<${JsxLiteralExample} />`, $("root"))
 ```
 
 ## Author

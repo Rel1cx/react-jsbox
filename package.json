@@ -1,6 +1,6 @@
 {
   "name": "react-jsbox",
-  "version": "0.0.55-beta",
+  "version": "0.0.56",
   "description": "A Custom React Renderer for writing JSBox apps in React.",
   "keywords": [
     "React",
@@ -34,13 +34,13 @@
     "babel-eslint": "^10.0.3",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-preset-minify": "^0.5.1",
-    "eslint": "^6.3.0",
+    "eslint": "^6.4.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsbox": "^0.1.1",
     "eslint-plugin-react-hooks": "^2.0.1",
     "react": "16.9.0",
-    "rollup": "1.21.0",
+    "rollup": "1.21.3",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -48,7 +48,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-progress": "^1.1.1",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-terser": "^5.1.1"
+    "rollup-plugin-terser": "^5.1.2"
   },
   "license": "MIT"
 }
