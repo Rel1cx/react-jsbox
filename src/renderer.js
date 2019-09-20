@@ -4,12 +4,12 @@ import HostConfig from './hostconfig'
 const JSBoxRenderer = ReactFiberReconciler(new HostConfig())
 
 export default function render(element, container, callback) {
-  let root = container._reactRootContainer
-  if (!root) {
-    container.views.forEach(v => v.remove())
-    const newRoot = JSBoxRenderer.createContainer(container)
+  let fiberRoot = container._reactRootContainer
+  if (!fiberRoot) {
+    container.views.forEach(view => view.remove())
+    const newFiberRoot = JSBoxRenderer.createContainer(container)
     // eslint-disable-next-line
-    root = container._reactRootContainer = newRoot
+    fiberRoot = container._reactRootContainer = newFiberRoot
   }
-  return JSBoxRenderer.updateContainer(element, root, null, callback)
+  return JSBoxRenderer.updateContainer(element, fiberRoot, null, callback)
 }

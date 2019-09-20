@@ -443,8 +443,6 @@ function JsxLiteralExample() {
         events=${{
             didSelect: (sender, { row }, data) => {
                 setCount(count => count + [1, -1, -count][row])
-                $audio.play({ id: 1104 })
-                console.log(count)
             }
         }}
       />

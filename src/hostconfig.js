@@ -1,4 +1,4 @@
-import View from './Components/view'
+import View from './components/view'
 import { now, filterProps } from './helper'
 
 const NO_CONTEXT = true
