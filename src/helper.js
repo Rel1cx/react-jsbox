@@ -12,16 +12,19 @@ export const { now } = Date
 // Based on react-three-fiber ((c) 2019 Paul Henschel, MIT).
 // https://github.com/drcmda/react-three-fiber/blob/master/src/reconciler.tsx#L13
 export const is = {
-  raw: a => a.__clsName !== undefined,
   obj: a => a === Object(a),
   str: a => typeof a === 'string',
   num: a => typeof a === 'number',
   und: a => a === void 0,
   arr: a => Array.isArray(a),
   equ(a, b) {
+    // Wrong type, doesn't match
     if (typeof a !== typeof b) return false
+    // Atomic, just compare a against b
     if (is.str(a) || is.num(a) || is.obj(a)) return a === b
+    // Array, shallow compare first to see if it's a match
     if (is.arr(a) && a == b) return true
+    // Last resort, go through keys
     let i
     for (i in a) if (!(i in b)) return false
     for (i in b) if (a[i] !== b[i]) return false
