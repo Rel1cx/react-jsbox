@@ -11,7 +11,7 @@ npm: <https://www.npmjs.com/package/react-jsbox>
 
 React doc: <https://reactjs.org/docs/getting-started.html>
 
-JSBox doc: <https://docs.xteko.com>
+JSBox doc: <https://docs.xteko.com/#/quickstart/intro>
 
 Example App: <https://github.com/Nicify/react-jsbox-example>
 
