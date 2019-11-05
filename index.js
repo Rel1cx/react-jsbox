@@ -1,2 +1,2 @@
-const ReactJSBox = require('./lib/react-jsbox')
+const ReactJSBox = require('./dist/react-jsbox')
 module.exports = ReactJSBox
