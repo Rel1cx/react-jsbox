@@ -1,7 +1,7 @@
 import ReactFiberReconciler from 'react-reconciler'
-import HostConfig from './hostconfig'
+import hostConfig from './hostconfig'
 
-const JSBoxRenderer = ReactFiberReconciler(new HostConfig())
+const JSBoxRenderer = ReactFiberReconciler(hostConfig)
 
 export default function render(element, container, callback) {
   let fiberRoot = container._reactRootContainer
