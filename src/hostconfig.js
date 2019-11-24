@@ -1,5 +1,5 @@
-import View from './components/view'
-import { now, filterProps } from './helper'
+import view from './components/view'
+import { now, filterProps, getOCClassName } from './helper'
 
 const NO_CONTEXT = true
 
@@ -37,18 +37,16 @@ export default class HostConfig {
   }
 
   createInstance(type, props, internalInstanceHandle) {
-    return new View(type, props)
+    return new view(type, props)
   }
 
   appendInitialChild(parentInstance, child) {
-    switch (parentInstance.element.ocValue().__clsName) {
-      case "BBStackView":
-        const stack = parentInstance.element.stack
-        stack.insert(child.element, stack.views.length)
-        break
-      default:
-        parentInstance.appendChild(child)
+    if (getOCClassName(parentInstance.element) === 'BBStackView') {
+      const stack = parentInstance.element.stack
+      stack.insert(child.element, stack.views.length)
+      return
     }
+    parentInstance.appendChild(child)
   }
 
   finalizeInitialChildren(parentInstance, type, props) {
@@ -77,13 +75,11 @@ export default class HostConfig {
 
   appendChildToContainer(parentInstance, child) {
     const parent = parentInstance.element || parentInstance
-    switch (parent.ocValue().__clsName) {
-      case "BBStackView":
-        parent.stack.insert(child.element, parent.stack.views.length)
-        break
-      default:
-        parent.ocValue().$addSubview(child.element)
+    if (getOCClassName(parent) === 'BBStackView') {
+      parent.stack.insert(child.element, parent.stack.views.length)
+      return
     }
+    parent.ocValue().$addSubview(child.element)
   }
 
   commitMount(instance, updatePayload, type, oldProps, newProps) {
@@ -111,13 +107,11 @@ export default class HostConfig {
 
   removeChildFromContainer(parentInstance, child) {
     const parent = parentInstance.element || parentInstance
-    switch (parent.ocValue().__clsName) {
-      case "BBStackView":
-        parent.stack.remove(child.element)
-        break
-      default:
-        child.element.remove()
+    if (getOCClassName(parent) === 'BBStackView') {
+      parent.stack.remove(child.element)
+      return
     }
+    child.element.remove()
   }
 
   resetTextContent() {
