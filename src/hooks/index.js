@@ -4,6 +4,7 @@ import useMotion from './useMotion'
 import useLocation from './useMotion'
 import useDebounce from './useDebounce'
 import useEventHandler from './useEventHandler'
+import useKeyboardHeight from './useKeyboardHeight'
 
 export default {
   usePing,
@@ -11,5 +12,6 @@ export default {
   useMotion,
   useLocation,
   useDebounce,
-  useEventHandler
+  useEventHandler,
+  useKeyboardHeight
 }
