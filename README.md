@@ -5,8 +5,6 @@
 
 > A Custom React renderer for writing JSBox apps in React.
 
-This package is experimental, **Use it at your own risk.**
-
 npm: <https://www.npmjs.com/package/react-jsbox>
 
 React doc: <https://reactjs.org/docs/getting-started.html>
