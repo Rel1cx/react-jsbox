@@ -1,5 +1,5 @@
 import view from './components/view'
-import { now, filterProps, getOCClassName } from './helper'
+import { now, filterProps } from './helper'
 
 const NO_CONTEXT = true
 
@@ -41,11 +41,6 @@ export default {
   },
 
   appendInitialChild(parentInstance, child) {
-    if (getOCClassName(parentInstance.element) === 'BBStackView') {
-      const stack = parentInstance.element.stack
-      stack.insert(child.element, stack.views.length)
-      return
-    }
     parentInstance.appendChild(child)
   },
 
@@ -75,10 +70,6 @@ export default {
 
   appendChildToContainer(parentInstance, child) {
     const parent = parentInstance.element || parentInstance
-    if (getOCClassName(parent) === 'BBStackView') {
-      parent.stack.insert(child.element, parent.stack.views.length)
-      return
-    }
     parent.ocValue().$addSubview(child.element)
   },
 
@@ -106,11 +97,6 @@ export default {
   },
 
   removeChildFromContainer(parentInstance, child) {
-    const parent = parentInstance.element || parentInstance
-    if (getOCClassName(parent) === 'BBStackView') {
-      parent.stack.remove(child.element)
-      return
-    }
     child.element.remove()
   },
 
