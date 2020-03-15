@@ -1,6 +1,6 @@
 {
   "name": "react-jsbox",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A custom React renderer for writing JSBox apps in React.",
   "keywords": [
     "React",
@@ -13,19 +13,7 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "commit": "git-cz",
-    "release": "standard-version",
     "prepublishOnly": "npm run build"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -e $GIT_PARAMS"
-    }
   },
   "author": "Eva1ent",
   "repository": "github:Nicify/react-jsbox",
@@ -43,13 +31,9 @@
     "@babel/preset-env": "^7.8.7",
     "@babel/preset-react": "^7.8.3",
     "@babel/runtime": "^7.8.7",
-    "@commitlint/config-conventional": "^8.3.4",
     "babel-eslint": "^10.1.0",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-preset-minify": "^0.5.1",
-    "commitizen": "^4.0.3",
-    "commitlint": "^8.3.5",
-    "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-plugin-babel": "^5.3.0",
     "eslint-plugin-import": "^2.20.1",
@@ -57,7 +41,7 @@
     "eslint-plugin-react-hooks": "^2.5.0",
     "husky": "^4.2.3",
     "react": "^16.13.0",
-    "rollup": "^2.0.2",
+    "rollup": "^2.0.6",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -65,7 +49,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-progress": "^1.1.1",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-terser": "^5.2.0"
+    "rollup-plugin-terser": "^5.3.0"
   },
   "license": "MIT"
 }
