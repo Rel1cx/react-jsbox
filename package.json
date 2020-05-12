@@ -1,6 +1,6 @@
 {
   "name": "react-jsbox",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "A custom React renderer for writing JSBox apps in React.",
   "keywords": [
     "React",
@@ -13,59 +13,43 @@
   "scripts": {
     "dev": "rollup -c -w",
     "build": "rollup -c",
-    "commit": "git-cz",
-    "release": "standard-version",
     "prepublishOnly": "npm run build"
-  },
-  "config": {
-    "commitizen": {
-      "path": "node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -e $GIT_PARAMS"
-    }
   },
   "author": "Eva1ent",
   "repository": "github:Nicify/react-jsbox",
   "peerDependencies": {
-    "react": "^16.12.0"
+    "react": "^16.13.1"
   },
   "dependencies": {
-    "react-reconciler": "^0.24.0"
+    "react-reconciler": "^0.25.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.7.5",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
-    "@babel/plugin-proposal-decorators": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.7.5",
-    "@babel/preset-env": "^7.7.5",
-    "@babel/preset-react": "^7.7.4",
-    "@babel/runtime": "^7.7.5",
-    "@commitlint/config-conventional": "^8.2.0",
-    "babel-eslint": "^10.0.3",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/runtime": "^7.9.6",
+    "babel-eslint": "^10.1.0",
     "babel-plugin-annotate-pure-calls": "^0.4.0",
     "babel-preset-minify": "^0.5.1",
-    "commitizen": "^4.0.3",
-    "commitlint": "^8.2.0",
-    "cz-conventional-changelog": "^3.0.2",
-    "eslint": "^6.7.2",
+    "eslint": "^7.0.0",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-jsbox": "^0.1.1",
-    "eslint-plugin-react-hooks": "^2.3.0",
-    "husky": "^3.1.0",
-    "react": "^16.12.0",
-    "rollup": "^1.27.8",
-    "rollup-plugin-babel": "^4.3.3",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "husky": "^4.2.5",
+    "react": "^16.13.1",
+    "rollup": "^2.9.1",
+    "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-cleanup": "^3.1.1",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-modify": "^3.0.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-progress": "^1.1.1",
+    "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-terser": "^5.1.2"
+    "rollup-plugin-terser": "^5.3.0"
   },
   "license": "MIT"
 }
