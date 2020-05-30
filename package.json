@@ -1,6 +1,6 @@
 {
   "name": "react-jsbox",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A custom React renderer for writing JSBox apps in React.",
   "keywords": [
     "React",

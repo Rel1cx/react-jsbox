@@ -1,5 +1,5 @@
 import view from './components/view'
-import { now, filterProps } from './helper'
+import {now, filterProps} from './helper'
 
 const NO_CONTEXT = true
 
@@ -10,13 +10,21 @@ export default {
 
   clearTimeout,
 
+  scheduleTimeout: setTimeout,
+
+  cancelTimeout: clearTimeout,
+
+  noTimeout: -1,
+
   supportsMutation: true,
 
   supportsPersistence: false,
 
   supportsHydration: false,
 
-  getPublicInstance({ element }) {
+  isPrimaryRenderer: true,
+
+  getPublicInstance({element}) {
     return element
   },
 
@@ -110,6 +118,13 @@ export default {
 
   unhideInstance(instance) {
     instance.element.hidden = false
-  }
+  },
 
+  hideTextInstance(instance) {
+    // noop
+  },
+
+  unhideTextInstance(instance, props) {
+    // noop
+  }
 }
