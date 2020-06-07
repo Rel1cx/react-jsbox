@@ -1,14 +1,10 @@
 import {useEffect} from 'react'
+import useTimeoutFn from './useTimeoutFn'
 
-const useDebounce = (fn, ms = 0, args = []) => {
-  useEffect(() => {
-    const handle = setTimeout(fn.bind(null, args), ms)
+export default function useDebounce(fn, ms = 0, deps = []) {
+  const [isReady, cancel, reset] = useTimeoutFn(fn, ms)
 
-    return () => {
-      // if args change then clear timeout
-      clearTimeout(handle)
-    }
-  }, [args])
+  useEffect(reset, deps)
+
+  return [isReady, cancel]
 }
-
-export default useDebounce

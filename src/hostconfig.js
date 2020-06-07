@@ -3,7 +3,7 @@ import {now, filterProps} from './helper'
 
 const NO_CONTEXT = true
 
-export default {
+const hostConfig = {
   now,
 
   setTimeout,
@@ -128,3 +128,5 @@ export default {
     // noop
   }
 }
+
+export default hostConfig
