@@ -1,15 +1,25 @@
 import ReactFiberReconciler from 'react-reconciler'
 import hostConfig from './hostconfig'
 
-const JSBoxRenderer = ReactFiberReconciler(hostConfig)
+const reconciler = ReactFiberReconciler(hostConfig)
 
-export default function render(element, container, callback) {
+const isConcurrent = true
+const hydrate = false
+
+const defaultOptions = {
+  onInit: () => {},
+  onRender: () => {}
+}
+
+export default function render(element, container, options) {
+  const rendererOptions = Object.assign({}, defaultOptions, options)
   let fiberRoot = container._reactRootContainer
   if (!fiberRoot) {
     container.views.forEach(view => view.remove())
-    const newFiberRoot = JSBoxRenderer.createContainer(container)
+    const newFiberRoot = reconciler.createContainer(container, isConcurrent, hydrate)
     // eslint-disable-next-line
     fiberRoot = container._reactRootContainer = newFiberRoot
   }
-  return JSBoxRenderer.updateContainer(element, fiberRoot, null, callback)
+  rendererOptions.onInit(reconciler)
+  return reconciler.updateContainer(element, fiberRoot, null, rendererOptions.onRender)
 }

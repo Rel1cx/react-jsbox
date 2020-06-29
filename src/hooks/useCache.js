@@ -9,7 +9,7 @@ const useCache = (key, initialValue) => {
     }
     return cacheValue
   })
-  useEffect(() => $cache.set(key, state))
+  useEffect(() => void $cache.set(key, state))
 
   return [state, setState]
 }
