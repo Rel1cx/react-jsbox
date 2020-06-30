@@ -41,19 +41,20 @@ export default class View {
 
     if (this._animate) {
       const {duration = 0.4, damping = 0, velocity = 0, options = 0, completion = () => {}} = this._animate
-      return $ui.animate({
+      $ui.animate({
         duration,
         animation() {
           Object.keys(updatePayload).forEach(prop => {
             element[prop] = updatePayload[prop]
           })
-          this.showOverlay()
         },
         damping,
         velocity,
         options,
         completion
       })
+      this.showOverlay()
+      return
     }
     Object.keys(updatePayload).forEach(prop => {
       element[prop] = updatePayload[prop]
