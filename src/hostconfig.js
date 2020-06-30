@@ -78,7 +78,7 @@ const hostConfig = {
 
   appendChildToContainer(parentInstance, child) {
     const parent = parentInstance.element || parentInstance
-    parent.ocValue().$addSubview(child.element)
+    parent.add(child.element)
   },
 
   commitMount(instance, updatePayload, type, oldProps, newProps) {
@@ -97,7 +97,7 @@ const hostConfig = {
 
   insertInContainerBefore(parentInstance, child, beforeChild) {
     const parent = parentInstance.element || parentInstance
-    parent.ocValue().$insertSubview_belowSubview(child.element, beforeChild.element)
+    parent.insertBelow(child.element, beforeChild.element)
   },
 
   removeChild(parentInstance, child) {
