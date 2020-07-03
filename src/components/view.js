@@ -1,6 +1,6 @@
 export default class View {
   constructor(type, props) {
-    const { layout, events } = props
+    const {layout, events} = props
     this._element = $ui.create({
       type,
       props,
@@ -16,7 +16,7 @@ export default class View {
   }
 
   appendChild(child) {
-    this.element.ocValue().$addSubview(child.element)
+    this.element.add(child.element)
   }
 
   removeChild(child) {
@@ -24,9 +24,7 @@ export default class View {
   }
 
   insertBefore(child, beforeChild) {
-    this.element
-      .ocValue()
-      .$insertSubview_belowSubview(child.element, beforeChild.element)
+    this.element.insertBelow(child.element, beforeChild.element)
   }
 
   update(updatePayload) {
