@@ -32,8 +32,7 @@
     "build": "npm-run-all --parallel build:*",
     "build:core": "microbundle build --raw",
     "build:core-min": "microbundle build --raw -f iife src/cjs.js -o dist/react-jsbox.min.js",
-    "dev": "microbundle watch --raw --format cjs",
-    "prepublishOnly": "npm run build"
+    "dev": "microbundle watch --raw --format cjs"
   },
   "author": "Eva1ent",
   "repository": "github:Nicify/react-jsbox",
