@@ -1,21 +1,9 @@
-import useCache from './useCache'
-import useDebounce from './useDebounce'
-import useEventHandler from './useEventHandler'
-import useFirstMountState from './useFirstMountState'
-import useLatest from './useLatest'
-import useRendersCount from './useRendersCount'
-import useTimeoutFn from './useTimeoutFn'
-import useUpdate from './useUpdate'
-import useUpdateEffect from './useUpdateEffect'
-
-export default {
-  useCache,
-  useDebounce,
-  useEventHandler,
-  useFirstMountState,
-  useLatest,
-  useRendersCount,
-  useTimeoutFn,
-  useUpdate,
-  useUpdateEffect
-}
+export {default as useCache} from './useCache'
+export {default as useDebounce} from './useDebounce'
+export {default as useEventHandler} from './useEventHandler'
+export {default as useFirstMountState} from './useFirstMountState'
+export {default as useLatest} from './useLatest'
+export {default as useRendersCount} from './useRendersCount'
+export {default as useTimeoutFn} from './useTimeoutFn'
+export {default as useUpdate} from './useUpdate'
+export {default as useUpdateEffect} from './useUpdateEffect'

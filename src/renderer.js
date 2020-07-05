@@ -11,7 +11,7 @@ const defaultOptions = {
   onRender: () => {}
 }
 
-export default function render(element, container, options) {
+export function render(element, container, options) {
   const rendererOptions = Object.assign({}, defaultOptions, options)
   let fiberRoot = container._reactRootContainer
   if (!fiberRoot) {
