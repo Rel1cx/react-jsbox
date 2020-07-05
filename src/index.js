@@ -1,7 +1,2 @@
-import render from './renderer'
-import hooks from './hooks'
-
-export default {
-  render,
-  ...hooks
-}
+export {render} from './renderer'
+export * from './hooks'
