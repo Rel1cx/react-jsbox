@@ -1,2 +1,2 @@
-export {render} from './renderer'
+export * from './renderer'
 export * from './hooks'

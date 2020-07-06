@@ -1,6 +1,6 @@
 {
   "name": "react-jsbox",
-  "version": "1.1.7",
+  "version": "1.2.0",
   "description": "A custom React renderer for writing JSBox apps in React.",
   "keywords": [
     "React",
@@ -10,35 +10,25 @@
     "custom-renderer"
   ],
   "main": "dist/react-jsbox.js",
-  "module": "dist/react-jsbox.module.js",
-  "umd:main": "dist/react-jsbox.umd.js",
+  "module": "dist/react-jsbox.esm.js",
   "source": "src/index.js",
   "files": [
     "src",
     "dist"
   ],
-  "exports": {
-    ".": {
-      "browser": "./dist/react-jsbox.module.js",
-      "umd": "./dist/react-jsbox.umd.js",
-      "import": "./dist/react-jsbox.mjs",
-      "require": "./dist/react-jsbox.js"
-    },
-    "./package.json": "./package.json",
-    "./": "./"
-  },
   "scripts": {
-    "prepare": "run-s build",
-    "build": "npm-run-all --parallel build:*",
-    "build:core": "microbundle build --raw",
-    "build:core-min": "microbundle build --raw -f iife src/cjs.js -o dist/react-jsbox.min.js",
-    "dev": "microbundle watch --raw --format cjs"
+    "dev": "rollup -c -w",
+    "build": "rollup -c",
+    "format": "prettier --ignore-path .gitignore --single-quote --write src/**/*.{js,md}",
+    "prepublishOnly": "npm run build"
   },
   "author": "Eva1ent",
   "repository": "github:Nicify/react-jsbox",
-  "peerDependencies": {
-    "react": "^16.13.1",
+  "dependencies": {
     "react-reconciler": "^0.25.1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
@@ -54,9 +44,17 @@
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsbox": "^0.1.1",
     "eslint-plugin-react-hooks": "^4.0.5",
-    "microbundle": "^0.12.2",
-    "npm-run-all": "^4.1.5",
-    "react": "^16.13.1"
+    "prettier": "^2.0.5",
+    "react": "^16.13.1",
+    "rollup": "^2.19.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-cleanup": "^3.1.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-modify": "^3.0.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-progress": "^1.1.2",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-terser": "^6.1.0"
   },
   "license": "MIT"
 }
