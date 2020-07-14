@@ -31,12 +31,12 @@
     "react": "^16.13.1"
   },
   "devDependencies": {
-    "@babel/core": "7.10.4",
+    "@babel/core": "7.10.5",
     "@babel/plugin-proposal-class-properties": "7.10.4",
-    "@babel/plugin-transform-runtime": "7.10.4",
+    "@babel/plugin-transform-runtime": "7.10.5",
     "@babel/preset-env": "7.10.4",
     "@babel/preset-react": "7.10.4",
-    "@babel/runtime": "7.10.4",
+    "@babel/runtime": "7.10.5",
     "babel-eslint": "10.1.0",
     "babel-preset-minify": "0.5.1",
     "eslint": "7.4.0",
