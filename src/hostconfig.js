@@ -50,6 +50,7 @@ const hostConfig = {
 
     appendInitialChild(parentInstance, child) {
         parentInstance.appendChild(child)
+        child.applyLayout()
     },
 
     finalizeInitialChildren(parentInstance, type, props) {
@@ -79,6 +80,7 @@ const hostConfig = {
     appendChildToContainer(parentInstance, child) {
         const parent = parentInstance.element || parentInstance
         parent.add(child.element)
+        child.applyLayout()
     },
 
     commitMount(instance, updatePayload, type, oldProps, newProps) {
