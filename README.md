@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to react-jsbox 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-0.0.57-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-1.2.4-beta-blue.svg?cacheSeconds=2592000" />
 </p>
 
 > A custom React renderer for writing JSBox apps in React.
@@ -92,30 +92,9 @@ $ui.render({
 #### Use ref to access JSBox view instance
 
 ```jsx
-import * as React from 'react'
-import * as ReactJSBox from 'react-jsbox'
-const { width, height } = $device.info.screen
+import React from 'react'
+import { render } from 'react-jsbox'
 
-// Create a root Container:
-$ui.render({
-    props: {
-        title: '',
-        debugging: true
-    },
-    views: [
-        {
-            type: 'view',
-            props: {
-                id: 'root'
-            },
-            layout(make, view) {
-                make.edges.equalTo(view.super.safeArea)
-            }
-        }
-    ]
-})
-
-// Create React component:
 class App extends React.PureComponent {
     constructor(props) {
         super(props)
@@ -135,6 +114,12 @@ class App extends React.PureComponent {
     }
 
     render() {
+        const { width, height } = this.props
+        const styles = {
+            container: $rect(0, 0, width, height - 40),
+            text: $rect(0, 64, width, 30),
+            textInput: $rect(10, 160, width - 20, 48)
+        }
         return (
             <view
                 id="container"
@@ -170,14 +155,29 @@ class App extends React.PureComponent {
     }
 }
 
-const styles = {
-    container: $rect(0, 0, width, height - 40),
-    text: $rect(0, 64, width, 30),
-    textInput: $rect(10, 160, width - 20, 48)
-}
-
-// Create React elements and render them:
-ReactJSBox.render(<App />, $('root'))
+$ui.render({
+    props: {
+        title: '',
+        debugging: true
+    },
+    views: [
+        {
+            type: 'view',
+            props: {
+                id: 'root'
+            },
+            layout(make, view) {
+                make.edges.equalTo(view.super.safeArea)
+            },
+            events: {
+                layoutSubviews(view) {
+                    const { width, height } = view.frame
+                    render(<App width={width} height={height} />, view)
+                }
+            }
+        }
+    ]
+})
 ```
 
 ### Hooks
@@ -419,7 +419,7 @@ $ui.render({
 
 👤 **Eva1ent**
 
-- Github: [@Nicify](https://github.com/Nicify)
+-   Github: [@Nicify](https://github.com/Nicify)
 
 ## Show your support
 
