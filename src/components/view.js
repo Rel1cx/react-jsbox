@@ -54,12 +54,12 @@ export default class View {
     }
 
     update(updatePayload) {
-        // let needsUpdateLayout = false
-        // if (hasOwnProperty.call(updatePayload, 'layout')) {
-        //     this._layout = updatePayload.layout
-        //     needsUpdateLayout = true
-        //     delete updatePayload.layout
-        // }
+        let needsUpdateLayout = false
+        if (hasOwnProperty.call(updatePayload, 'layout')) {
+            this._layout = updatePayload.layout
+            needsUpdateLayout = true
+            delete updatePayload.layout
+        }
         if (hasOwnProperty.call(updatePayload, 'animate')) {
             this._animate = updatePayload.animate
             delete updatePayload.animate
@@ -85,7 +85,7 @@ export default class View {
         Object.keys(updatePayload).forEach(prop => {
             element[prop] = updatePayload[prop]
         })
-        // needsUpdateLayout && this.remakeLayout()
+        needsUpdateLayout && this.updateLayout()
         this.showOverlay()
     }
 

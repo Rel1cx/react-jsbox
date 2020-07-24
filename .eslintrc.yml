@@ -1,0 +1,29 @@
+env:
+    node: true
+    es6: true
+parser: babel-eslint
+extends:
+    - eslint:recommended
+    - plugin:react/recommended
+    - plugin:jsbox/default
+plugins:
+    - react
+    - react-hooks
+globals:
+    JSBox: readonly
+settings:
+    react:
+        version: detect
+rules:
+    semi:
+        - 2
+        - never
+    arrow-parens: 0
+    global-require: 0
+    no-unused-vars: warn
+    no-underscore-dangle: 0
+    no-param-reassign: 0
+    import/prefer-default-export: 0
+    react/prop-types: 'off'
+    react-hooks/rules-of-hooks: error
+    react-hooks/exhaustive-deps: warn

@@ -1,6 +1,6 @@
 {
     "name": "react-jsbox",
-    "version": "1.2.4-beta",
+    "version": "1.2.6-beta",
     "description": "A custom React renderer for writing JSBox apps in React.",
     "keywords": [
         "React",
@@ -19,8 +19,14 @@
     "scripts": {
         "dev": "rollup -c -w",
         "build": "rollup -c",
+        "lint": "eslint --fix src/**/*.js",
         "format": "prettier --ignore-path .gitignore --single-quote --write src/**/*.{js,md}",
         "prepublishOnly": "npm run build"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run format && npm run lint && git add ."
+        }
     },
     "author": "Eva1ent",
     "repository": "github:Nicify/react-jsbox",
@@ -43,7 +49,9 @@
         "eslint-plugin-babel": "^5.3.1",
         "eslint-plugin-import": "^2.22.0",
         "eslint-plugin-jsbox": "^0.1.1",
+        "eslint-plugin-react": "^7.20.3",
         "eslint-plugin-react-hooks": "^4.0.8",
+        "husky": "^4.2.5",
         "prettier": "^2.0.5",
         "react": "^16.13.1",
         "rollup": "^2.22.0",
