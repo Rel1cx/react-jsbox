@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to react-jsbox 👋</h1>
 <p>
-  <img src="https://img.shields.io/badge/version-1.2.1-blue.svg?cacheSeconds=2592000" />
+  <img src="https://img.shields.io/badge/version-1.2.4-beta-blue.svg?cacheSeconds=2592000" />
 </p>
 
 > A custom React renderer for writing JSBox apps in React.
