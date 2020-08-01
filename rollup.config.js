@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs'
 import progress from 'rollup-plugin-progress'
 import replace from 'rollup-plugin-modify'
 import resolve from 'rollup-plugin-node-resolve'
-import {terser} from 'rollup-plugin-terser'
+// import {terser} from 'rollup-plugin-terser'
 import path from 'path'
 import pkg from './package.json'
 
@@ -33,7 +33,7 @@ export default [
       resolve(),
       babel(getBabelOptions({useESModules: true})),
       commonjs(),
-      terser(),
+      // terser(),
       cleanup()
     ]
   },
@@ -50,7 +50,7 @@ export default [
       resolve(),
       babel(getBabelOptions({useESModules: false})),
       commonjs(),
-      terser(),
+      // terser(),
       cleanup()
     ]
   }
