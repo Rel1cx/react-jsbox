@@ -44,7 +44,7 @@
         "eslint-plugin-import": "2.22.0",
         "eslint-plugin-jsbox": "0.1.1",
         "eslint-plugin-react-hooks": "4.1.0",
-        "prettier": "2.1.1",
+        "prettier": "2.1.2",
         "react": "16.13.1",
         "rollup": "2.26.11",
         "rollup-plugin-babel": "4.4.0",
