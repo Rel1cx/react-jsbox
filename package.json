@@ -25,7 +25,7 @@
     "author": "Eva1ent",
     "repository": "github:Nicify/react-jsbox",
     "dependencies": {
-        "react-reconciler": "^0.25.1"
+        "react-reconciler": "^0.26.0"
     },
     "peerDependencies": {
         "react": "^16.13.1"
@@ -43,9 +43,9 @@
         "eslint-plugin-babel": "5.3.1",
         "eslint-plugin-import": "2.22.1",
         "eslint-plugin-jsbox": "0.1.1",
-        "eslint-plugin-react-hooks": "4.1.2",
+        "eslint-plugin-react-hooks": "4.2.0",
         "prettier": "2.1.2",
-        "react": "16.13.1",
+        "react": "16.14.0",
         "rollup": "2.28.2",
         "rollup-plugin-babel": "4.4.0",
         "rollup-plugin-cleanup": "3.2.1",
