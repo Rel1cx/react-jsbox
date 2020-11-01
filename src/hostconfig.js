@@ -128,6 +128,57 @@ const hostConfig = {
 
     unhideTextInstance(instance, props) {
         // noop
+    },
+
+    getFundamentalComponentInstance(fundamentalInstance) {
+        throw new Error('Not yet implemented.')
+    },
+
+    mountFundamentalComponent(fundamentalInstance) {
+        throw new Error('Not yet implemented.')
+    },
+
+    shouldUpdateFundamentalComponent(fundamentalInstance) {
+        console.warn('Not yet implemented.')
+        return false
+    },
+
+    updateFundamentalComponent(fundamentalInstance) {
+        throw new Error('Not yet implemented.')
+    },
+
+    unmountFundamentalComponent(fundamentalInstance) {
+        throw new Error('Not yet implemented.')
+    },
+
+    cloneFundamentalInstance(fundamentalInstance) {
+        throw new Error('Not yet implemented.')
+    },
+
+    clearContainer(container) {
+        container?.views?.forEach(view => view?.remove())
+    },
+
+    getInstanceFromNode() {
+        throw new Error('Not yet implemented.')
+    },
+
+    beforeActiveInstanceBlur() {
+        // noop
+    },
+
+    afterActiveInstanceBlur() {
+        // noop
+    },
+
+    preparePortalMount() {
+        // noop
+    },
+
+    prepareScopeUpdate() {},
+
+    getInstanceFromScope() {
+        throw new Error('Not yet implemented.')
     }
 }
 
