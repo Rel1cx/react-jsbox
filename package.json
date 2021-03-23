@@ -25,7 +25,7 @@
     "author": "Eva1ent",
     "repository": "github:Nicify/react-jsbox",
     "dependencies": {
-        "react-reconciler": "0.25.1"
+        "react-reconciler": "0.26.2"
     },
     "peerDependencies": {
         "react": "^16.14.0"
