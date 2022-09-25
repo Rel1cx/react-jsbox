@@ -28,7 +28,7 @@
         "react-reconciler": "0.25.1"
     },
     "peerDependencies": {
-        "react": "^17.0.2"
+        "react": "^17.0.2 || ^18.0.0"
     },
     "devDependencies": {
         "@babel/core": "7.16.7",
@@ -45,7 +45,7 @@
         "eslint-plugin-jsbox": "0.1.1",
         "eslint-plugin-react-hooks": "4.3.0",
         "prettier": "2.5.1",
-        "react": "17.0.2",
+        "react": "18.2.0",
         "rollup": "2.62.0",
         "rollup-plugin-babel": "4.4.0",
         "rollup-plugin-cleanup": "3.2.1",
