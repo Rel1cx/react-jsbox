@@ -4,11 +4,10 @@ import { defineConfig } from 'tsup'
 export default defineConfig(options => ({
     platform: 'browser',
     target: 'ES2015',
-    name: 'tools',
-    format: ['cjs'],
+    format: ['cjs', 'esm'],
     entry: ['src/index.js'],
     noExternal: ['react-reconciler'],
-    dts: true,
+    dts: false,
     minify: true,
     splitting: false,
     sourcemap: true,

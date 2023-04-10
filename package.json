@@ -9,8 +9,8 @@
         "react-reconciler",
         "custom-renderer"
     ],
-    "main": "dist/react-jsbox.js",
-    "module": "dist/react-jsbox.esm.js",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
     "source": "src/index.js",
     "files": [
         "src",
@@ -25,20 +25,19 @@
     "author": "Eva1ent",
     "repository": "github:Nicify/react-jsbox",
     "dependencies": {
-        "react-reconciler": "0.25.1"
+        "react-reconciler": "0.29.0"
     },
     "peerDependencies": {
         "react": "16.13.1"
     },
     "devDependencies": {
-        "eslint": "8.24.0",
-        "eslint-plugin-import": "2.26.0",
+        "eslint": "8.38.0",
+        "eslint-plugin-import": "2.27.5",
         "eslint-plugin-jsbox": "0.1.1",
         "eslint-plugin-react-hooks": "4.6.0",
-        "prettier": "2.7.1",
-        "react": "16.13.1",
-        "tsup": "6.2.3",
-        "typescript": "4.8.4"
+        "prettier": "2.8.7",
+        "react": "18.2.0",
+        "tsup": "6.7.0"
     },
     "license": "MIT"
 }

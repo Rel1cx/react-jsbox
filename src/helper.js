@@ -4,9 +4,6 @@ export const emptyObject = {}
 
 export const hasOwnProperty = Object.prototype.hasOwnProperty
 
-// HighRes but slower then Date.now during invoke
-// export const now = () => $objc('NSDate').invoke('date').invoke('timeIntervalSince1970') * 1000
-
 export const { now } = Date
 
 export function getOCClassName(jsValue) {
