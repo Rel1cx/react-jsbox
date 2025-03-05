@@ -1,8 +1,3 @@
-<h1 align="center">Welcome to react-jsbox 👋</h1>
-<p>
-  <img src="https://img.shields.io/badge/version-1.2.4-beta-blue.svg?cacheSeconds=2592000" />
-</p>
-
 > A custom React renderer for writing JSBox apps in React.
 
 npm: <https://www.npmjs.com/package/react-jsbox>
@@ -415,12 +410,3 @@ $ui.render({
 })
 ```
 
-## Author
-
-👤 **Eva1ent**
-
--   Github: [@Nicify](https://github.com/Nicify)
-
-## Show your support
-
-Give a ⭐️ if this project helped you !
